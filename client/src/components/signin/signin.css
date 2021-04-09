@@ -1,0 +1,21 @@
+.signin{
+    position: relative;
+    width: 500px;
+    max-width: 80vw;
+    margin: auto;
+    background: linear-gradient(90deg,rgb(68, 143, 78),rgb(168, 168, 128));
+    padding: 40px;
+    margin-top: 50px;
+    box-shadow: transparent red 0px 0px 5px 10px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
+h1{
+    font-family: arial;
+}
+.signinheading{
+    border-bottom: 4px white solid;
+    padding: 15px;
+}
+input{
+    filter: opacity(40%);
+}

@@ -1,0 +1,19 @@
+.contact{
+    width: 500px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 30px;
+    text-align: center;
+    background: rgb(167, 157, 139);
+    border: ridge 5px teal;
+    max-width: 60vw;
+}
+.contact div{
+    margin-top: 30px;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.contact-i{
+    margin-right: 10px;
+    color: teal;
+}

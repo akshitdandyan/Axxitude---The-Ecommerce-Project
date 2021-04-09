@@ -1,0 +1,27 @@
+.footer{
+    background-color: rgb(38, 68, 99);
+    color: white;
+    font-family:  'Sarala';
+    height: auto;
+    margin-top: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.part{
+    width: 210px;
+    margin: 20px;
+}
+.part p{
+    font-size: 15px;
+    transition: 0.2s;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.part p:hover{
+    color: lightslategrey;
+}
+.part h3{
+    border-bottom: 2px white solid;
+}

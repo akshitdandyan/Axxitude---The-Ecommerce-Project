@@ -1,0 +1,60 @@
+.register{
+    background: rgb(224, 223, 216);
+    width: 800px;
+    max-width: 80vw;
+    height: auto;
+    box-shadow:  7px 7px 4px grey;
+    padding: 30px;
+    margin: auto;
+    position: relative;
+    margin-top: 50px;
+}
+.registerheading{
+    text-align: center;
+    font-family: 'Kalam';font-size: 22px;
+
+}
+.basicdetails{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.basicdetails span{
+    display: inline-block;
+}
+label{
+    display: block;
+    font-family: 'Farsan';font-size: 22px;
+}
+input{
+    padding: 5px;
+    font-family: 'Farsan';font-size: 20px;
+    outline: none;
+    border: none;
+}
+button{
+    display: block;
+    margin: 10px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    background: cornflowerblue;
+    color: white;
+    transition: 0.3s;
+}
+button:hover{
+    background: rgb(35, 78, 158);
+}
+.logogif{
+    height: 250px;
+    width: 250px;
+    background: url('./../../media/registergif.gif');
+    background-size: cover;
+}
+.moredetails{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

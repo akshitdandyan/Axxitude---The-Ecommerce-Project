@@ -1,0 +1,59 @@
+.sampleproductcard{
+    width: 200px;
+    height: 400px;
+    padding: 25px;
+    position: relative;
+    border-radius: 20px;
+    border: 4px rgb(4, 31, 66) solid;
+    color: white;
+    background:linear-gradient(white,rgb(14, 107, 110));
+    box-shadow: inset 0px 0px 15px 7px rgb(68, 68, 70);
+    font-family: 'ZCOOL XiaoWei';
+    margin: 10px;
+    transition: 0.3s;
+    filter: opacity(90%);
+}
+.sampleproductcard:hover{
+    transform: scale(1.06);
+}
+.sampleproductimg{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    box-shadow: 0px 0px 5px 2px rgb(57, 58, 57);
+}
+.sampleproductimg img{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+    height: 100%;
+}
+.sampleproductdetail{
+    height: 200px;
+    filter: opacity(50%);
+    overflow: hidden;
+}
+.sampleproductprice{
+    color: black;
+}
+.sampleproducttitle{
+    color: rgb(23, 27, 80);
+    border-radius: 20px;
+    padding: 15px;
+    background-color: honeydew;
+    opacity: 90%;
+}
+.sampleproductdescription{
+    color: white;
+}
+@media only screen and (max-width: 580px) {
+    .sampleproductcard{
+        width: 100px;
+        font-size: 10px;
+        height: 200px;
+    }
+    .sampleproductimg{
+        width: 80px;
+        height: 100px;
+    }
+  }
