@@ -1,0 +1,42 @@
+{
+    "data": {
+        "createdAt": "2021-04-10T04:48:10.221Z",
+        "_id": "60712f970562ce1b54c3e1e7",
+        "firstname": "Tommy",
+        "lastname": "Vercette",
+        "email": "tommy@rockstar.games",
+        "address": "Ken Office, Liberty City",
+        "occupation": "Game Character",
+        "phone": 3477763543,
+        "password": "misty12345",
+        "cpassword": "misty12345",
+        "__v": 0
+    },
+    "status": 200,
+    "statusText": "OK",
+    "headers": {
+        "content-length": "289",
+        "content-type": "application/json; charset=utf-8"
+    },
+    "config": {
+        "url": "http://localhost:5000/login",
+        "method": "post",
+        "data": "{\"email\":\"tommy@rockstar.games\",\"password\":\"misty12345\"}",
+        "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/json;charset=utf-8"
+        },
+        "transformRequest": [
+            null
+        ],
+        "transformResponse": [
+            null
+        ],
+        "timeout": 0,
+        "xsrfCookieName": "XSRF-TOKEN",
+        "xsrfHeaderName": "X-XSRF-TOKEN",
+        "maxContentLength": -1,
+        "maxBodyLength": -1
+    },
+    "request": {}
+}

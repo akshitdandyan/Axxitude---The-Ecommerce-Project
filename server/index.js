@@ -15,8 +15,7 @@ app.get('/',(req,res)=>res.send("Server Index"))
 app.use(bodyParser.json({limit: '30mb', extended: true}));
 app.use(bodyParser.urlencoded({limit: '30mb', extended: true}));
 
-app.post('/register',registerUser)
-app.use('/register',router);
+app.use(router);
 
 const port = 5000;
 const DB_URL = process.env.DATABASE;

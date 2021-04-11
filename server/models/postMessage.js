@@ -15,6 +15,6 @@ const postSchema = mongoose.Schema({
     },
 })
 
-var PostMessage = mongoose.model('PostMessage', postSchema);
+var RegisteredUser = mongoose.model('registered_user', postSchema);
 
-export default PostMessage; 
+export default RegisteredUser; 

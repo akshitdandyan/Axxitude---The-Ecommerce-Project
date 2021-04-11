@@ -1,8 +1,8 @@
-import {registeruser} from '../api/index';
-import { REGISTER} from '../constants/actionTypes.js';
+import {registeruser,loginuser} from '../api/index';
+import { LOGIN, REGISTER} from '../constants/actionTypes.js';
 export const registerUser = (userdata) => async (dispatch) => {
     try {
-      if(userdata.password != userdata.cpassword){
+      if(userdata.password !== userdata.cpassword){
         window.alert("Check Password Twice!");
         return;
       }
@@ -15,5 +15,10 @@ export const registerUser = (userdata) => async (dispatch) => {
   };
 
 export const loginUser = (userCredentials) => async(dispatch)=>{
-
+    try{
+      const data = await loginuser(userCredentials);
+      dispatch({type:LOGIN,payload:data})
+    }catch(err){
+      console.log("ACTIONS",err)
+    }
 }

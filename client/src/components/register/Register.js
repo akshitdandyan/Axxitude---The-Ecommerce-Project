@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux'; 
 import './register.css';
 import { registerUser } from '../actions/register.js';
 function Register() {

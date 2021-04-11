@@ -1,12 +1,12 @@
 import express from 'express';
 
-import PostMessage from '../models/postMessage.js';
+import RegisteredUser from '../models/postMessage.js';
 
 const router = express.Router();
 export const registerUser = async (req, res) => {
     const { firstname,lastname,email,address,occupation,phone,password,cpassword} = req.body;
     console.log("JUMBa",firstname)
-    const newPostMessage = new PostMessage({ firstname,lastname,email,address,occupation,phone,password,cpassword })
+    const newPostMessage = new RegisteredUser({ firstname,lastname,email,address,occupation,phone,password,cpassword })
 
     try {
         await newPostMessage.save();
@@ -15,4 +15,14 @@ export const registerUser = async (req, res) => {
         res.status(409).json({ message: error.message });
     }
 }
+export const getUser = async(req,res)=>{
+    const {email,password} = req.body;
+    try{
+        const user = await RegisteredUser.find({email:email});
+        res.status(200).json(user)
+    }catch(error){
+        console.log("CONTROLLERS",error)
+    }
+}
+
 export default router;
