@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux'; 
 import './register.css';
-import { registerUser } from '../actions/register.js';
+import { registerUser } from '../actions/actions.js';
 function Register() {
     const dispatch = useDispatch();
     const { register, handleSubmit } = useForm();
@@ -50,6 +50,10 @@ function Register() {
                         <span>
                             <label>Confirm Password</label>
                             <input type="password" name="cpassword" {...register('cpassword')} required minLength="8" />
+                        </span>
+                        <span>
+                            <label>Choose a cool profile picture</label>
+                            <input type="file" name="image" {...register('image')}  />
                         </span>
                         <button type="submit">Register</button>
                     </div>

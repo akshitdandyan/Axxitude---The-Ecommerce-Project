@@ -1,6 +1,6 @@
 import React from 'react';
-import Categories from './components/categories/Categories';
-import SampleProducts from './components/sampleproducts/SampleProducts';
+import Categories from '../categories/Categories';
+import SampleProducts from './SampleProducts';
 function SampleProductsHomePage() {
     const styles={
         display: "flex",

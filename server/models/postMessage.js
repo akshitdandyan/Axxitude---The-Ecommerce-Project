@@ -9,6 +9,7 @@ const postSchema = mongoose.Schema({
     phone:Number,
     password:String,
     cpassword:String,
+    image:String,
     createdAt: {
         type: Date,
         default: new Date(),

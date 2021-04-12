@@ -10,8 +10,6 @@ function SampleProducts() {
             .then((json)=>{
                 setProducts(json);
                 setProductsLoaded(true);
-                console.log(products)
-                console.log(json)
             })
         .catch(err => {
             console.error(err);

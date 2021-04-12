@@ -5,7 +5,7 @@ import RegisteredUser from '../models/postMessage.js';
 const router = express.Router();
 export const registerUser = async (req, res) => {
     const { firstname,lastname,email,address,occupation,phone,password,cpassword} = req.body;
-    console.log("JUMBa",firstname)
+    console.log("JUMBa",req.body)
     const newPostMessage = new RegisteredUser({ firstname,lastname,email,address,occupation,phone,password,cpassword })
 
     try {

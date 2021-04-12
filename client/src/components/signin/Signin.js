@@ -2,7 +2,7 @@ import React from 'react';
 import './signin.css';
 import {useDispatch} from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { loginUser } from '../actions/register';
+import { loginUser } from '../actions/actions.js';
 function Signin() {
     const dispatch = useDispatch();
     const { register, handleSubmit } = useForm();

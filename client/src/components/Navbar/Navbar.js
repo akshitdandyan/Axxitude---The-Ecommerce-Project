@@ -19,6 +19,7 @@ function Navbar(){
                     <Link to="/register" style={linkStyles}><span>Register</span></Link>
                     <Link to="/signin" style={linkStyles}><span>Sign In</span></Link>
                     <Link to="/contact" style={linkStyles}> <span>Contact</span></Link>
+                    <Link to="/myProfile" style={linkStyles}><span>Profile</span></Link>
                 </div>
             </div>
         </>
