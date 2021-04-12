@@ -5,6 +5,7 @@
 .navbar{
     background: #f1d145;
     height: 200px;
+    z-index: 2000;
 }
 .logo{
     position: relative;
@@ -29,7 +30,7 @@
     padding: 20px;
     height: 150px;
 }
-.links span{
+.links span,.logout{
     border: 2px rgb(37, 136, 61) solid;
     padding: 5px;
     font-size: large;
@@ -39,6 +40,14 @@
     transition: 0.4s;
     cursor: pointer;
     margin: 10px;
+    height: 20px;
+}
+.logout{
+    margin-top: -8px;
+}
+.logout:hover{
+    background: rgb(13, 54, 23);
+    color: white;
 }
 .links span:hover{
     background: rgb(13, 54, 23);
@@ -53,9 +62,34 @@
 }
 @media only screen and (max-width: 580px) {
     .links{
-        display: none;
+        display: flex;
+        justify-content: center;
+        top:0px;
+        z-index: -10;
+        right: 0px;
+        padding: 0px;
+        width: 100vw;
+        background-color: #f1d145;
+        transition: 1s;
+        filter: opacity(0%);
+    }
+    .links span{
+        display: block;
+        text-align: center;
+        width: 90vw;
+        border: none;
+        border-bottom: 4px green solid;
+        margin: 0px;
     }
     .menubar{
         display: block;
+    }
+    .active{
+        top:200px;
+        z-index: 1000;
+        filter: opacity(100%);
+    }
+    Link{
+        position: absolute;
     }
   }

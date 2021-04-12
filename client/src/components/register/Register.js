@@ -1,13 +1,21 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux'; 
+import { useDispatch,useSelector } from 'react-redux'; 
 import './register.css';
 import { registerUser } from '../actions/actions.js';
+import {useHistory} from 'react-router-dom';
+
 function Register() {
+    const isLoggedIn = useSelector(state => state.isLoggedReducer)
+    const history = useHistory();
     const dispatch = useDispatch();
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         dispatch(registerUser(data));
+        if(isLoggedIn[0]){
+            console.log(isLoggedIn)
+        history.push('/')
+        }
     };
     return (
         <div className="register">

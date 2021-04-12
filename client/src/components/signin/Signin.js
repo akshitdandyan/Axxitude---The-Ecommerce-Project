@@ -3,7 +3,9 @@ import './signin.css';
 import {useDispatch} from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { loginUser } from '../actions/actions.js';
-function Signin() {
+import {useHistory} from 'react-router-dom'
+function Signin() { 
+    const history = useHistory();
     const dispatch = useDispatch();
     const { register, handleSubmit } = useForm();
     const onsubmit = (userCredentials) =>{

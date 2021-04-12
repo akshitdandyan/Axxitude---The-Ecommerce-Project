@@ -16,6 +16,6 @@ const postSchema = mongoose.Schema({
     },
 })
 
-var RegisteredUser = mongoose.model('registered_user', postSchema);
+var RegisteredUser = mongoose.model('temp_registered_user', postSchema);
 
 export default RegisteredUser; 

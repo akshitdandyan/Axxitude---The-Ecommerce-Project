@@ -5,9 +5,13 @@ import RegisteredUser from '../models/postMessage.js';
 const router = express.Router();
 export const registerUser = async (req, res) => {
     const { firstname,lastname,email,address,occupation,phone,password,cpassword} = req.body;
-    console.log("JUMBa",req.body)
+    const shouldReturn = await RegisteredUser.find({email:email})
+    if(shouldReturn.length){
+        console.log("Should have returned")
+        res.status(400).json(false)
+        returned
+    }
     const newPostMessage = new RegisteredUser({ firstname,lastname,email,address,occupation,phone,password,cpassword })
-
     try {
         await newPostMessage.save();
         res.status(201).json(newPostMessage );
