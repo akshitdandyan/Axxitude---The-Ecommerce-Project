@@ -8,6 +8,7 @@ function Navbar(){
     const isLoggedIn = useSelector(state => state.isLoggedReducer);
     const dispatch = useDispatch();
     const logout=()=>{
+        setMenuClick(false)
         dispatch(logoutUser)
     }
     const linkStyles={
@@ -15,6 +16,7 @@ function Navbar(){
         color:"black"
     }
     const [menuClick,setMenuClick] = useState(false)
+    
     return(
         <>
             <div className="navbar">
@@ -23,16 +25,16 @@ function Navbar(){
                 </div>
                 <div className="menubar"><i className={menuClick?"far fa-caret-square-up":"far fa-caret-square-down"} onClick={()=>setMenuClick(!menuClick)}></i></div>
                 <div className={menuClick?"links active":"links"}>
-                    <Link to="/about" style={linkStyles}><span>About Us</span></Link>
+                    <Link to="/about" style={linkStyles} onClick={()=>setMenuClick(false)} ><span>About Us</span></Link>
                     {isLoggedIn===false &&
                     <>
-                    <Link to="/register" style={linkStyles}><span>Register</span></Link>
-                    <Link to="/signin" style={linkStyles}><span>Sign In</span></Link>
+                    <Link to="/register" style={linkStyles} onClick={()=>setMenuClick(false)} ><span>Register</span></Link>
+                    <Link to="/signin" style={linkStyles} onClick={()=>setMenuClick(false)} ><span>Sign In</span></Link>
                     </>
                     }
-                    <Link to="/contact" style={linkStyles}> <span>Contact</span></Link>
-                    {isLoggedIn!==false && <Link to="/myProfile" style={linkStyles}><span>Profile</span></Link>}
-                    {isLoggedIn!==false && <div className="logout" onClick={logout}>Log Out</div>}
+                    <Link to="/contact" style={linkStyles} onClick={()=>setMenuClick(false)} > <span>Contact</span></Link>
+                    {isLoggedIn!==false && <Link to="/myProfile" style={linkStyles} onClick={()=>setMenuClick(false)} ><span>Profile</span></Link>}
+                    {isLoggedIn!==false && <div className="logout" onClick={logout}  >Log Out</div>}
                 </div>
             </div>
         </>

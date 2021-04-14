@@ -9,6 +9,7 @@ import Contact from './components/contact/Contact';
 import Signin from './components/signin/Signin';
 import UserProfile from './components/userProfile/UserProfile'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Seller from './components/Seller/Seller'
 
 function App() {
   
@@ -26,12 +27,13 @@ function App() {
             <Route path="/signin" exact component={Signin} />
             <Route path="/contact" exact component={Contact} />
             <Route path="/myProfile" exact component={UserProfile} />
+            <Route path="/seller" exact component={Seller} />
           </Switch>
           </main>
+          <footer>
+            <Footer />
+          </footer>
         </Router>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 }

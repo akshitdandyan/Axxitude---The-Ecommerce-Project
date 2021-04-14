@@ -4,11 +4,10 @@ import {useSelector} from 'react-redux';
 import sampledp from '../../media/sampleImages/sampleuserdp.jpg'
 function UserProfile() {
     const isLoggedIn = useSelector(state => state.isLoggedReducer)
-    console.log("HELLO",isLoggedIn)
     const profileData =isLoggedIn[1]
     // {firstname:'John',lastname:'Cena',email:'john@cena.io',address:'Miami',occupation:'Wrestler',phone:'1823736744',createdAt:'19-04-2017'}
     return (
-        !isLoggedIn?<h1>YOU ARE SIGNED OUT</h1>:
+        !isLoggedIn?<h1 className="signedOut">YOU ARE SIGNED OUT</h1>:
         <div className="user_profile">
             <div className="profile_header">
                 <h2>We are pleased to see you as a family member.</h2>
@@ -16,7 +15,7 @@ function UserProfile() {
             <div className="user_profile_container">
                 <div className="upper">
                     <div className="dp">
-                        <img src={sampledp} alt="dp" />
+                        <img src={profileData.image?profileData.image:sampledp} alt="dp" />
                     </div> 
                     <div className="primary_data">
                         <div className="user_profile_data">

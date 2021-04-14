@@ -20,3 +20,21 @@ export const loginuser = async(userCredentials) =>{
     console.log("ABLE TO LOGIN NOW");
     return userData;
 }
+
+export const createSellerAccount = async(sellerData)=>{
+    try {
+        await axios.post(`${url}/seller`,sellerData)
+        console.log("SELLER API")
+    } catch (error) {
+        console.log("API SELLER",error)
+    }
+}
+
+export const getProductsFromSellers = async()=>{
+    try{
+        const productsFromSellers = await axios.get(`${url}/sellerproducts`)
+        return productsFromSellers;
+    }catch(err){
+        console.log("API PRODUCTS FROM SELLER",err)
+    }
+}

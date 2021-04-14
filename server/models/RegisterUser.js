@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const postSchema = mongoose.Schema({ 
+const userSchema = mongoose.Schema({ 
     firstname:String,
     lastname:String,
     email:String,
@@ -16,6 +16,6 @@ const postSchema = mongoose.Schema({
     },
 })
 
-var RegisteredUser = mongoose.model('temp_registered_user', postSchema);
+var RegisteredUser = mongoose.model('temp_registered_user', userSchema);
 
 export default RegisteredUser; 

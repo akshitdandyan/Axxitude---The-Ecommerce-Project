@@ -1,5 +1,7 @@
 import React from 'react';
 import './footer.css';
+import {Link} from 'react-router-dom'
+
 function Footer(){
     return(
         <div className="footer">
@@ -26,7 +28,7 @@ function Footer(){
 
             <div className="makemoney part">
                 <h3>Make money with us <i className="fas fa-hand-holding-usd"></i></h3>
-                <p>Sell on Axxitude</p>
+                <Link to="/seller" style={{textDecoration:'none'}}><p>Sell on Axxitude</p></Link>
                 <p>Advertise your products</p>
                 <p>Become brand ambassador</p>
                 <p>Reffer products</p>

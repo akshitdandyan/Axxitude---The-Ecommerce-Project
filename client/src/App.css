@@ -5,3 +5,12 @@ body{
     background-repeat: no-repeat;
     background-position: top left;
 }
+header{
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    z-index: 3000;
+}
+main{
+    margin-top: 250px;
+}

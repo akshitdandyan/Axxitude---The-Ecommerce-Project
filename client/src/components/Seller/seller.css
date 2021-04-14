@@ -1,0 +1,31 @@
+.seller{
+    background-color: aliceblue;
+    padding: 30px;
+    margin-top: -50px;
+    margin-bottom: -50px;
+}
+.seller_input_field input{
+    background-color: aquamarine;
+}
+.seller_registration_form{
+    display: flex;
+    flex-wrap: wrap;
+}
+.seller_gif{
+    position: absolute;
+    top: 250px;
+    right: 50px;
+    border: 2px red solid;
+}
+.seller_gif iframe{
+    width: 800px;
+    height: 500px;
+    border: none;
+    max-width: 90vw;
+}
+@media only screen and (max-width:1230px){
+    .seller_gif{
+        display: none;
+    }
+    
+}

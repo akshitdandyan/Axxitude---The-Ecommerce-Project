@@ -1,11 +1,13 @@
-import {registeruser,loginuser} from '../api/index';
-import { LOGIN, REGISTER,LOGOUT} from '../constants/actionTypes.js';
+import {registeruser,loginuser,createSellerAccount} from '../api/index';
+import { LOGIN, REGISTER,LOGOUT,SELLER} from '../constants/actionTypes.js';
 
 export const loginUser = (userCredentials) => async(dispatch)=>{
   console.log("BIENG LOGGED IN")
     try{
       const data = await loginuser(userCredentials);
-      dispatch({type:LOGIN,payload:data})
+      if(data!=undefined){
+        dispatch({type:LOGIN,payload:data})
+      }
     }catch(err){
       console.log("ACTIONS",err)
     }
@@ -22,6 +24,7 @@ export const registerUser = (userdata) => async (dispatch) => {
       window.alert("Check Password Twice!");
       return;
     }
+    console.log(userdata)
     const isRegistered = await registeruser(userdata);
     if(!isRegistered){
       alert("An account with this email is already registered.")
@@ -33,3 +36,13 @@ export const registerUser = (userdata) => async (dispatch) => {
     console.log("ERROR LOG",error);
   }
 };
+
+export const sellerAccount = (sellerData) => async(dispatch)=>{
+  try {
+    await createSellerAccount(sellerData)
+    dispatch({ type: SELLER, payload: sellerData });
+    console.log("SELLER ACTION")
+  } catch (error) {
+    console.log("ACTIONS.JS SELLER",error)
+  }
+}
