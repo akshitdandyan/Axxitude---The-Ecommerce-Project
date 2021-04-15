@@ -1,4 +1,5 @@
 import axios from 'axios';
+// const url = 'https://axxitude.herokuapp.com';
 const url = 'http://localhost:5000';
 
 export const registeruser = async(newUserData) => {

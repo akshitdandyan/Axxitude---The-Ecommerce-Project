@@ -9,17 +9,15 @@ dotenv.config();
 const app = express();
 app.use(cors());
 
-app.get('/',(req,res)=>res.send("Server Index"))
-
+app.get('/',(req,res)=>res.send("AXXITUDE SERVERS"))
 app.use(bodyParser.json({limit: '30mb', extended: true}));
 app.use(bodyParser.urlencoded({limit: '30mb', extended: true}));
 
 app.use(router);
-
-const port = 5000;
 const DB_URL = process.env.DATABASE;
+
 mongoose.connect(DB_URL,{useNewUrlParser:true,useUnifiedTopology:true})
     .then(
-        app.listen(port,()=>console.log("SERVER running on "+port))
+        app.listen(process.env.PORT || 5000,()=>console.log("SERVER running"))
     ).catch((err)=>console.log(err.message))
 mongoose.set('useFindAndModify',false); 

@@ -36,10 +36,21 @@
 .sampleproductprice{
     color: black;
 }
+.fa-check-circle{
+    color: green;
+    filter: opacity(100%);
+    font-size: 8px;
+}
+.fromAxxitude{
+    display: inline;
+    font-family:  'Sarala';
+    color: green;
+    font-size: 8px;
+}
 .sampleproducttitle{
     color: rgb(23, 27, 80);
     border-radius: 20px;
-    padding: 15px;
+    padding: 5px;
     background-color: honeydew;
     opacity: 90%;
 }

@@ -4,18 +4,21 @@ import './register.css';
 import { registerUser } from '../actions/actions.js';
 import {useHistory} from 'react-router-dom';
 import FileBase from 'react-file-base64';
+import { loginUser } from '../actions/actions.js';
 
 function Register() {
     const isLoggedIn = useSelector(state => state.isLoggedReducer)
     const history = useHistory();
     const [newUserData,setNewUserData]=useState({firstname:'',lastname:'',email:'',address:'',occupation:'',phone:'',password:'',cpassword:'',image:''})
     const dispatch = useDispatch();
-    const onSubmit = () => {
-        dispatch(registerUser(newUserData));
-        if(isLoggedIn[0]){
-            console.log(isLoggedIn)
-        history.push('/')
+    const onSubmit = async(e) => {
+        e.preventDefault()
+        if (newUserData.password!=newUserData.cpassword){
+            window.alert("CHECK PASSWORDS AGAIN")
         }
+        await dispatch(registerUser(newUserData));
+        const loginCredentials={email:newUserData.email,password:newUserData.password}
+        dispatch(loginUser(loginCredentials));
     };
     return (
         <div className="register">

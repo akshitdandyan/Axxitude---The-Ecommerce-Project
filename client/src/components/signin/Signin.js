@@ -1,28 +1,26 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './signin.css';
 import {useDispatch} from 'react-redux';
-import { useForm } from 'react-hook-form';
 import { loginUser } from '../actions/actions.js';
-import {useHistory} from 'react-router-dom'
 function Signin() { 
-    const history = useHistory();
     const dispatch = useDispatch();
-    const { register, handleSubmit } = useForm();
-    const onsubmit = (userCredentials) =>{
+    const [userCredentials,setUserCredentials]=useState({email:'',password:''})
+    const onsubmit = (e) =>{
+        e.preventDefault()
         dispatch(loginUser(userCredentials));
     }
     return (
         <div className="signin">
             <div className="signinheading"><h1>Sign In</h1></div>
-            <form onSubmit={handleSubmit(onsubmit)}>
+            <form>
                 <div>
                     <label>Email</label>
-                    <input type="email" {...register('email')} required />
+                    <input type="email" onChange={(e)=>setUserCredentials({...userCredentials,email:e.target.value})} required />
                     <br />
                     <label>Password</label>
-                    <input type="password" {...register('password')} required />
+                    <input type="password" onChange={(e)=>setUserCredentials({...userCredentials,password:e.target.value})} required />
                 </div>
-                <button type="submit">Log In</button>
+                <button onClick={onsubmit}>Log In</button>
             </form>
         </div>
     )

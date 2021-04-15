@@ -11,7 +11,6 @@ function SampleProducts() {
         fetch('https://fakestoreapi.com/products/')
             .then(res=>res.json())
             .then((json)=>{
-                console.log("1",json)
                 setProducts(json);
                 setProductsLoaded(true);
             })
@@ -24,7 +23,6 @@ function SampleProducts() {
     
     useEffect(async()=>{
         const sellersData = await dispatch(getProductsFromSellers);
-        console.log("2",sellersData.data)
         setProductsFromSeller(sellersData.data)
     },[])
 
@@ -34,10 +32,10 @@ function SampleProducts() {
         :
         <div className="allsampleproducts">
         {products.map(products => (
-          <SampleProductCard sampleProductDetails={products} key={products.id}/>
+          <SampleProductCard sampleProductDetails={products} key={products.id} fromAxxitude={true} />
         ))}
         {productsFromSeller.map(products => (
-            <SampleProductCard sampleProductDetails={products} key={products._id}/>
+            <SampleProductCard sampleProductDetails={products} key={products._id} fromAxxitude={false} />
           ))}
         
         </div>

@@ -1,6 +1,6 @@
 import express from 'express';
 import RegisteredUser from '../models/RegisterUser.js';
-import sellerAccount from '../models/SellerAccount.js';
+import SellerAccount from '../models/SellerAccount.js';
 
 const router = express.Router();
 
@@ -34,7 +34,7 @@ export const getUser = async(req,res)=>{
 
 export const seller_Account = async(req,res)=>{
     const {businessName,businessType,email,password,cpassword,address,productName,productPrice,productDescription,productImage} = req.body;
-    const newSellerAccount = new sellerAccount({businessName,businessType,email,password,cpassword,address,productName,productPrice,productDescription,productImage})
+    const newSellerAccount = new SellerAccount({businessName,businessType,email,password,cpassword,address,productName,productPrice,productDescription,productImage})
     try {
         await newSellerAccount.save();
         res.status(201).json(newSellerAccount)
@@ -45,8 +45,8 @@ export const seller_Account = async(req,res)=>{
 }
 
 export const getProductsFromSellers = async(req,res)=>{
-    const sellerProducts = await sellerAccount.find();
+    const sellerProducts = await SellerAccount.find();
     res.status(200).json(sellerProducts);
 }
 
-export default router;
+export default router; 

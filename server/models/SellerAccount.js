@@ -17,6 +17,6 @@ const sellerSchema = mongoose.Schema({
     }
 })
 
-var sellerAccount = mongoose.model('seller_account',sellerSchema);
+var SellerAccount = mongoose.model('seller_account',sellerSchema);
 
-export default sellerAccount;
+export default SellerAccount;

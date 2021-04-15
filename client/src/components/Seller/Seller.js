@@ -7,7 +7,8 @@ import {sellerAccount} from '../actions/actions.js'
 export default function Seller() {
     const [sellerData,setSellerData] = useState({businessName:'',businessType:'',email:'',password:'',cpassword:'',address:'',productName:'',productPrice:'',productDescription:'',productImage:''})
     const dispatch = useDispatch();
-    const onSubmit =()=>{
+    const onSubmit =(e)=>{
+        e.preventDefault()
         if(sellerData.password!==sellerData.cpassword){
             alert("PASSWORDS ARE NOT MATCHING")
             return;
