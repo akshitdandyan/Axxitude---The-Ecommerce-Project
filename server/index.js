@@ -20,4 +20,4 @@ mongoose.connect(DB_URL,{useNewUrlParser:true,useUnifiedTopology:true})
     .then(
         app.listen(process.env.PORT || 5000,()=>console.log("SERVER running"))
     ).catch((err)=>console.log(err.message))
-mongoose.set('useFindAndModify',false); 
+mongoose.set('useFindAndModify',false);  

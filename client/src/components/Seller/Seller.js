@@ -3,7 +3,7 @@ import FileBase from 'react-file-base64';
 import {useDispatch} from'react-redux';
 import './seller.css'
 import {sellerAccount} from '../actions/actions.js'
-
+import seller_side_1 from '../../media/Videos/Seller_Side_1.mp4';
 export default function Seller() {
     const [sellerData,setSellerData] = useState({businessName:'',businessType:'',email:'',password:'',cpassword:'',address:'',productName:'',productPrice:'',productDescription:'',productImage:''})
     const dispatch = useDispatch();
@@ -16,8 +16,19 @@ export default function Seller() {
         dispatch(sellerAccount(sellerData))
 
     }
+    const [videoComp,setVideoComp] = useState(false);
+    useState(()=>{
+        setTimeout(() => {
+            setVideoComp(true)
+        }, 44000);
+    },[])
     return (
         <div className="seller">
+            <div className={videoComp?'seller_side_vdo_container seller_side_vdo_hide':'seller_side_vdo_container'}>
+                <video autoPlay>
+                    <source src={seller_side_1} type="video/mp4"/>
+                </video>
+            </div>
             <div className="seller_registration_form">
                 <form autoComplete="true">
                     <div className="seller_input_field">
@@ -56,15 +67,12 @@ export default function Seller() {
                         <label>Product Description</label>
                         <input type="text" name="businessName" onChange={(e)=>setSellerData({...sellerData,productDescription:e.target.value})} required></input>
                     </div>
-                    <div className="seller_input_field">
+                    <div className="seller_input_field seller_file_input">
                         <label>Product Image</label>
-                        <FileBase type="file" multiple={false} onDone={({base64})=>setSellerData({...sellerData,productImage:base64})} required />
+                        <FileBase type="file" multiple={false} onDone={({base64})=>setSellerData({...sellerData,productImage:base64})} required className="seller_file_input"/>
                     </div>
                     <button type="submit" onClick={onSubmit}>Start Selling</button>
                 </form>
-                <div className="seller_gif">
-                    <iframe src="https://giphy.com/embed/iL94l9s7YOqxqxm03f" />
-                </div>
             </div>
         </div>
     )

@@ -7,17 +7,20 @@ function SampleProductCard(props) {
         <div className="sampleproductcard">
             <div className="sampleproductimg">
                 <img src={details.image || details.productImage} alt="Product Card" />
-            </div><br />
+            </div>
             <div className="sampleproductdetail">
-                <div className="sampleproductprice">
-                    <h3>{`$ ${details.price || details.productPrice}`} {fromAxxitude && <span><br/><i className="fas fa-check-circle"></i><p className="fromAxxitude">From Axxitude</p></span>}</h3>
-                </div><br />
                 <div className="sampleproducttitle">
-                    <h4>{details.title || details.productName}</h4>
-                </div><br />
-                <div className="sampleproductdescription">
-                    <p>{details.description || details.productDescription}</p>
+                    {details.title || details.productName}
                 </div>
+                <div className="sampleproductprice">
+                    {`$ ${details.price || details.productPrice}`} 
+                </div>
+                <div className="axxitudeverified">
+                {fromAxxitude && <div className="axxv"><i className="fas fa-check-circle"></i><p className="fromAxxitude">From Axxitude</p></div>}
+                </div>
+                {/* <div className="sampleproductdescription">
+                    <p>{details.description || details.productDescription}</p>
+                </div> */}
             </div>
         </div>
     )
