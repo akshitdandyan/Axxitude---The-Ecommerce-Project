@@ -22,3 +22,56 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
+/* loading animation */
+.seller_loading_anm{
+    margin: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.sla{
+    width: 20px;
+    height: 20px;
+    margin: 20px;
+    transition: 0.4s;
+    position: relative;
+    animation: sla infinite linear  1s ;
+}
+.sla1{
+    background: rgb(233, 13, 6);
+    animation-delay: 0s;
+}
+.sla2{
+    background: rgb(39, 165, 184);
+    animation-delay: 0.5s;
+}
+.sla3{
+    background: rgb(125, 22, 103);
+    animation-delay: 1s;
+}
+.sla4{
+    background: rgb(45, 171, 26);
+    animation-delay: 1.5s;
+}
+.sla5{
+    background: rgb(16, 184, 209);
+    animation-delay: 2s;
+}
+@keyframes sla {
+    0%{
+        bottom: 30px;
+    }
+    25%{
+        bottom: 0px;
+    }
+    50%{
+        bottom: -30px;
+    }
+    75%{
+        bottom: 0px;
+    }
+    100%{
+        bottom: 30px;
+    }
+}

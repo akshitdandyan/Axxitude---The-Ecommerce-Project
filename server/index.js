@@ -3,13 +3,13 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import router from './routes/users.js';
-import dotenv from 'dotenv';
+import dotenv from 'dotenv'
 dotenv.config();
 
 const app = express();
 app.use(cors());
 
-app.get('/',(req,res)=>res.send("AXXITUDE SERVERS"))
+app.get('/',(req,res)=>res.send("AXXITUDE SERVERS 5.0"))
 app.use(bodyParser.json({limit: '30mb', extended: true}));
 app.use(bodyParser.urlencoded({limit: '30mb', extended: true}));
 
