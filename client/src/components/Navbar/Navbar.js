@@ -13,7 +13,8 @@ function Navbar(){
     }
     const linkStyles={
         textDecoration:"none",
-        color:"black"
+        color:"black",
+        height: '20px'
     }
     const [menuClick,setMenuClick] = useState(false)
     

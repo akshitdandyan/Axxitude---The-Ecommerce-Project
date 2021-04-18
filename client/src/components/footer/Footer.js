@@ -29,6 +29,7 @@ function Footer(){
             <div className="makemoney part">
                 <h3>Make money with us <i className="fas fa-hand-holding-usd"></i></h3>
                 <Link to="/seller" style={{textDecoration:"none",color:"white"}}><p>Sell on Axxitude</p></Link>
+                <a href="http://localhost:3001/" style={{textDecoration:"none",color:"white"}} target="_nextTab"><p>Sell on Axxitude</p></a>
                 <p>Advertise your products</p>
                 <p>Become brand ambassador</p>
                 <p>Reffer products</p>

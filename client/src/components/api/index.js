@@ -1,6 +1,6 @@
 import axios from 'axios';
-const url = 'https://axxitude.herokuapp.com'; // while deploying
-// const url = 'http://localhost:5000';             //while building
+// const url = 'https://axxitude.herokuapp.com'; // while deploying
+const url = 'http://localhost:5000';             //while building
 
 export const registeruser = async(newUserData) => {
     try{

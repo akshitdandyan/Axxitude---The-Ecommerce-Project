@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 app.use(cors());
 
-app.get('/',(req,res)=>res.send("AXXITUDE SERVERS 5.0"))
+app.get('/',(req,res)=>res.send("AXXITUDE SERVERS 6.0"))
 app.use(bodyParser.json({limit: '30mb', extended: true}));
 app.use(bodyParser.urlencoded({limit: '30mb', extended: true}));
 

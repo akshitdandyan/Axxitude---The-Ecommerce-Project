@@ -1,0 +1,12 @@
+.main{
+    background: black;
+}
+.ty{
+    position: relative;
+    display:flex;
+    justify-content: center;
+}
+.ty img{
+    width: 600px;
+    max-width: 100vw;
+}
