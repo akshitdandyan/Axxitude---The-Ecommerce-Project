@@ -10,7 +10,7 @@ function Video() {
                     <video autoPlay controls muted>
                         <source src={video} type="video/mp4" />
                     </video>
-                    <div className="Close_Video" onClick={() => set_is_video_closed(true)}><i class="far fa-window-close"></i></div>
+                    <div className="Close_Video" onClick={() => set_is_video_closed(true)}><i className="far fa-window-close"></i></div>
                 </>
             }
 

@@ -6,14 +6,14 @@ function SampleProductCard(props) {
     return (
         <div className="sampleproductcard">
             <div className="sampleproductimg">
-                <img src={details.image || details.productImage} alt="Product Card" />
+                <img src={details.image || details.ProductImage} alt="Product Card" />
             </div>
             <div className="sampleproductdetail">
                 <div className="sampleproducttitle">
-                    {details.title || details.productName}
+                    {details.title || details.ProductName}
                 </div>
                 <div className="sampleproductprice">
-                    {`$ ${details.price || details.productPrice}`} 
+                    {`$ ${details.price || details.ProductPrice}`} 
                 </div>
                 <div className="axxitudeverified">
                 {fromAxxitude && <div className="axxv"><i className="fas fa-check-circle"></i><p className="fromAxxitude">From Axxitude</p></div>}

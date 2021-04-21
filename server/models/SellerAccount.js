@@ -1,22 +1,20 @@
 import mongoose from 'mongoose';
 
 const sellerSchema = mongoose.Schema({
-    businessName:String,
-    businessType:String,
-    email:String,
-    password:String,
-    cpassword:String,
-    address:String,
-    productName:String,
-    productPrice:Number,
-    productDescription:String,
-    productImage:String,
+    Fullname:String,
+    BusinessName : String,
+    BusinessType : String,
+    StoreAddress : String,
+    Email : String,
+    ContactNumber : Number,
+    Password : String,
+    ProfilePicture: String,
     businessStartDate:{
         type:Date,
         default : new Date()
     }
 })
 
-var SellerAccount = mongoose.model('seller_account',sellerSchema);
+var SellerAccount = mongoose.model('SellerAccount',sellerSchema);
 
 export default SellerAccount;

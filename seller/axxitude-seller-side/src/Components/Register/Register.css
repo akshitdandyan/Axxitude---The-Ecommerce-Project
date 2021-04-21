@@ -1,0 +1,109 @@
+.header-register-component-merge-effect-1{
+    height: 200px;
+    background: linear-gradient(black,rgb(7, 35, 68));
+    margin: 0px;
+}
+.header-register-component-merge-effect-2{
+    height: 200px;
+    background: linear-gradient(rgb(7, 35, 68),black);
+    margin: 0px;
+}
+.register_seller_account{
+    background-color: rgb(7, 35, 68);
+    position: relative;
+}
+
+.registration_form_container,.axx-form{
+    border-radius: 20px;
+    max-width: 90vw;
+    width: 400px;
+    margin: auto;
+    background-color: rgb(226, 228, 228);
+    margin-bottom: 20px;
+    position: relative;
+    margin-top: -100px;
+    margin-bottom: -100px;
+    z-index: 10;
+}
+.registration_form_container,.axx-form label,input,textarea{
+    display: block;
+    font-family: 'Anaheim';
+}
+.registration_form_container label,.axx-form label{
+    font-size: 20px;
+    width: 250px;
+    margin: auto;
+    text-align: center;
+}
+.registration_form_container input,textarea,.axx-form input,textarea{
+    outline: none;
+    width: 200px;
+    height: 30px;
+    margin: auto;
+    font-size: 18px;
+    border:none;
+}
+.registration_form_container input:focus,.axx-form input:focus{
+    border: 2px skyblue solid;
+}
+.registration_form_container label span,.axx-form label span{
+    color: red;
+}
+.registration_form_container button,.axx-form button{
+    width: 200px;
+    outline: none;
+    border: none;
+    color: white;
+    margin: auto;
+    font-size: 20px;
+    position: relative;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: rgb(19, 91, 150);
+}
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+.registration_form_container button:hover,.axx-form button:hover{
+    transition: 0.2s;
+    filter: opacity(50%);
+}
+.passwords_not_matching{
+    width: 450px;
+    height: 200px;
+    margin: auto;
+    position: relative;
+    bottom: 500px;
+    max-width: 70vw;
+    background-color: white;
+    border: 2px grey solid;
+    font-family: Arial, Helvetica, sans-serif;
+    display: none;
+}
+.passwords_not_matching h3{
+    font-weight: lighter;
+    display: inline-block;
+    background-color: red;
+    position: absolute;
+    right: 0px;
+    top: -20px;
+    text-align: center;
+    width: 40px;
+    cursor: pointer;
+    height: 25px;
+    color: white;
+}
+.passwords_not_matching h1{
+    font-size: 20px;
+    margin-top: 40px;
+    padding: 20px;
+}
+.blurform{
+    filter: blur(4px);
+    filter: brightness(60%);
+}
+.passwords_not_matching_visible{
+    display: block;
+ }

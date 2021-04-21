@@ -1,0 +1,27 @@
+.Product_card{
+    width: 150px;
+    height: 300px;
+    border: 1px grey solid;
+    background-color: aliceblue;
+    border-radius: 20px;
+    box-shadow: 0px 10px 10px 2px rgb(44, 42, 42);
+}
+.Product_card_image{
+    width: 150px;
+    height: 150px;
+    border-radius: inherit;
+}
+.Product_card_image img{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+.Product_Details{
+    margin-top: 20px;
+    font-family: arial;
+    text-align: center;
+}
+.Product_Name{
+    font-size: 20px;
+    font-weight: bolder;
+}

@@ -25,6 +25,7 @@ function SampleProducts() {
     const [productsFromSellerLoaded,setProductsFromSellerLoaded] = useState(false);
     useEffect(async()=>{
         const sellersData = await dispatch(getProductsFromSellers);
+        console.log(sellersData.data)
         setProductsFromSeller(sellersData.data)
         setProductsFromSellerLoaded(true)
     },[])
@@ -42,8 +43,8 @@ function SampleProducts() {
        {!productsFromSellerLoaded?
         <LoadingSellersProduct/>:
         <div className="allsampleproducts">
-        {productsFromSeller.map(products => (
-            <SampleProductCard sampleProductDetails={products} key={products._id} fromAxxitude={false} />
+        {productsFromSeller.map(product => (
+            <SampleProductCard sampleProductDetails={product} key={products._id} fromAxxitude={false} />
           ))}
         </div>}
         </div>
