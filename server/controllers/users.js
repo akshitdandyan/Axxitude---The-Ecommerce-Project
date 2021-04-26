@@ -2,6 +2,7 @@ import express from 'express';
 import RegisteredUser from '../models/RegisterUser.js';
 import SellerAccount from '../models/SellerAccount.js';
 import SellerProduct from '../models/SellerProduct.js'
+import mongoose from 'mongoose'
 
 const router = express.Router();
 
@@ -64,16 +65,14 @@ export const sellerLogin = async(req,res) => {
 
 export const lauchSellerProduct = async(req,res) =>{
     const {SellerEmail,ProductName,ProductDescription,ProductPrice,ProductCategory,Tags,ProductImage} = req.body;
-    // SellerProduct.countDocuments({SellerEmail:SellerEmail},function(err,count){
-    //      ProductNumber = count
-    // });
-    // console.log(ProductNumber)
-    const ProductNumber = 0;
-    // get count value into product number
-    const newSellerProduct = new SellerProduct({SellerEmail,ProductName,ProductDescription,ProductPrice,ProductCategory,Tags,ProductImage,ProductNumber})
+    const currSeller = await SellerAccount.find({Email:SellerEmail})
+    const currSellerTotalProducts = currSeller[0].TotalProducts
+    await SellerAccount.findOneAndUpdate({Email:SellerEmail}, { TotalProducts: currSellerTotalProducts+1}, { new: true });
+    const newSellerProduct = new SellerProduct({SellerEmail,ProductName,ProductDescription,ProductPrice,ProductCategory,Tags,ProductImage})
     try {
         await newSellerProduct.save();
         res.status(201).json(true)
+        console.log("LAUNCHED");
     } catch (error) {
         console.log(error)
     }
@@ -83,6 +82,26 @@ export const getLaunchedProducts = async(req,res) => {
     const {sellerEmail} =  (req.query)
     const launchedProducts = await SellerProduct.find({SellerEmail:sellerEmail})
     res.status(200).json(launchedProducts)
+}
+
+export const deleteLaunchedProduct = async(req,res) => {
+    const { id,SellerEmail } = req.body;
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+
+    await SellerProduct.findByIdAndRemove(id);
+    const currSeller = await SellerAccount.find({Email:SellerEmail})
+    const currSellerTotalProducts = currSeller[0].TotalProducts
+    await SellerAccount.findOneAndUpdate({Email:SellerEmail}, { TotalProducts: currSellerTotalProducts - 1}, { new: true });
+
+    res.status(200).json({ message: "PRODUCT deleted successfully." });
+}
+
+export const incClickOnProduct = async(req,res) =>{
+    const {SellerEmail} = req.body
+    const currSeller = await SellerAccount.find({Email:SellerEmail})
+    const currProductsClicked = currSeller[0].ProductsClicked
+    await SellerAccount.findOneAndUpdate({Email:SellerEmail}, { ProductsClicked: currProductsClicked+1}, { new: true });
+    res.status(200).json(true);
 }
 
 export default router; 

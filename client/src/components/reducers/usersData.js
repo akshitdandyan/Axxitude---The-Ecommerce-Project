@@ -1,6 +1,6 @@
-import { REGISTER,LOGIN } from '../constants/actionTypes';
+import { REGISTER } from '../constants/actionTypes';
 
-export default (users=[],action) => {
+const usersData =  (users=[],action) => {
   switch (action.type) {
     case REGISTER:
       return [...users,action.payload];
@@ -8,3 +8,5 @@ export default (users=[],action) => {
       return users;
   }
 };
+
+export default usersData

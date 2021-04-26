@@ -19,14 +19,14 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
-.basicdetails span{
+.basicdetails>span{
     display: inline-block;
 }
 label{
     display: block;
     font-family: 'Farsan';font-size: 22px;
 }
-input{
+.signin_inputs>input,span > input{
     padding: 5px;
     font-family: 'Farsan';font-size: 20px;
     outline: none;

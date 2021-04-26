@@ -1,5 +1,6 @@
 import axios from 'axios';
-const url = 'http://localhost:5000';
+// const url = 'http://localhost:5000';
+const url = 'https://axxitude.herokuapp.com'
 
 export const RegisterForSellerAccount = async(newSellerData) => {
     try {
@@ -24,14 +25,14 @@ export const getUserDataToLogin = async(userEmail) => {
 
 export const launchproduct = async(productDetails) =>{
     try{
-        const isLaunched = await axios.post(`${url}/launchproduct`,productDetails)
-        return isLaunched
+        await axios.post(`${url}/launchproduct`,productDetails)
+
     }catch(err){
         console.log(err)
     }
 }
 
-export const getLauchedProducts = async(sellerEmail) => {
+export const getLaunchedProducts = async(sellerEmail) => {
     try{
         const params = {
             sellerEmail : sellerEmail
@@ -40,5 +41,13 @@ export const getLauchedProducts = async(sellerEmail) => {
         return launchedProducts
     }catch(err){
         console.log(err)
+    }
+}
+
+export const deleteProduct = async(id) => {
+    try{
+        await axios.post(`${url}/deleteproduct`,id)
+    }catch(error){
+        console.log('SORRY',error);
     }
 }

@@ -1,0 +1,67 @@
+.login_form{
+    background-color: rgb(187, 184, 184);
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+.login{
+    background: rgb(7, 35, 68);
+    margin-top: -80px;
+}
+
+.login_btn{
+    width: 100px;
+    margin: auto;
+    text-align: center;
+    outline: none;
+    margin-top: 20px;
+    color: white;
+    font-family: "Sarala";
+    border: none;
+    padding: 10px;
+    background-color: rgb(26, 70, 142);
+    box-sizing: border-box;
+}
+.login_btn:hover{
+    transition: 0.2s;
+    background-color: white;
+    color: rgb(26, 70, 142);
+    font-style: bold;
+    border: 2px solid rgb(26, 70, 142);
+}
+.invalid_login_credentials{
+    width: 300px;
+    background-color: white;
+    position: relative;
+    color: black;
+    padding: 10px;
+    margin: auto;
+    bottom: 500px;
+    border-radius: 20px;
+    font-family: "Sarala";
+    max-width: 90vw;
+    width: 400px;
+}
+.invalid_login_credentials p{
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    width: 30px;
+    margin-top: -20px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+}
+.invalid_login_credentials h3{
+    text-align: center;
+}
+.invalid_login_credentials_visible{
+    transition: 0.4s;
+    bottom: 100px;
+}

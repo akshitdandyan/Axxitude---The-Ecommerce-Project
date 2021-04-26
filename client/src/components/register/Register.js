@@ -1,19 +1,20 @@
 import React,{useState} from 'react';
-import { useDispatch,useSelector } from 'react-redux'; 
+import { useDispatch} from 'react-redux'; 
 import './register.css';
 import { registerUser } from '../actions/actions.js';
-import {useHistory} from 'react-router-dom';
+// import {useHistory} from 'react-router-dom';
 import FileBase from 'react-file-base64';
 import { loginUser } from '../actions/actions.js';
+import { Helmet } from 'react-helmet';
 
 function Register() {
-    const isLoggedIn = useSelector(state => state.isLoggedReducer)
-    const history = useHistory();
+    // const isLoggedIn = useSelector(state => state.isLoggedReducer)
+    // const history = useHistory();
     const [newUserData,setNewUserData]=useState({firstname:'',lastname:'',email:'',address:'',occupation:'',phone:'',password:'',cpassword:'',image:''})
     const dispatch = useDispatch();
     const onSubmit = async(e) => {
         e.preventDefault()
-        if (newUserData.password!=newUserData.cpassword){
+        if (newUserData.password!==newUserData.cpassword){
             window.alert("CHECK PASSWORDS AGAIN")
         }
         await dispatch(registerUser(newUserData));
@@ -22,6 +23,7 @@ function Register() {
     };
     return (
         <div className="register">
+            <Helmet><title>Register</title></Helmet>
             <div className="registerheading">
                 <h1>Register on Axxitude</h1>
             </div><br />

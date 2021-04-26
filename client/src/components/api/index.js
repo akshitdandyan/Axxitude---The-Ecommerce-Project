@@ -39,3 +39,16 @@ export const getProductsFromSellers = async()=>{
         console.log("API PRODUCTS FROM SELLER",err)
     }
 }
+
+export const increaseClick = async(SellerEmail_) => {
+    try {
+        const isIncreased = await axios.patch(`${url}/seller-product-clicked`,{SellerEmail:SellerEmail_})
+        if(isIncreased.data){
+            console.log("CLICK ADDED");
+        }else{
+            console.log("CLICK NOT ADDED");
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}

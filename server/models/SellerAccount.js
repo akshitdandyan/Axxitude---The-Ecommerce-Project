@@ -9,6 +9,14 @@ const sellerSchema = mongoose.Schema({
     ContactNumber : Number,
     Password : String,
     ProfilePicture: String,
+    ProductsClicked:{
+        type:Number,
+        default:0
+    },
+    TotalProducts:{
+        type:Number,
+        default:1
+    },
     businessStartDate:{
         type:Date,
         default : new Date()

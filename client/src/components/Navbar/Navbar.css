@@ -26,8 +26,8 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 20px;
-    height: 150px;
+    height: 100px;
+    padding-top: 10px;
 }
 .links span,.logout{
     border: 2px rgb(37, 136, 61) solid;
@@ -38,7 +38,7 @@
     border-radius: 10px;
     transition: 0.4s;
     cursor: pointer;
-    margin: 10px;
+    margin: 6px;
     height: 20px;
 }
 .logout{

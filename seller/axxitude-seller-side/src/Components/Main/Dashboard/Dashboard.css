@@ -155,7 +155,7 @@
     text-align: center;
     color: white;
     font-size: 25px;
-    font-family: "Sarala";
+    font-family: "Caveat";
 }
 .product_form{
     background-color: rgb(219, 217, 217);
@@ -166,7 +166,37 @@
     padding-top: 40px;
     left: -400px;
 }
-
+.close_product_form{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-family: arial;
+    font-size: 20px;
+    background-color: rgb(207, 108, 108);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding-top: 3px;
+    box-sizing: border-box;
+    color: aliceblue;
+}
+.close_product_form:hover{
+    background-color: red;
+    cursor: pointer;
+}
+.btn-container button{
+    background-color: rgb(29, 87, 159);
+    color: white;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+}
+.btn-container button:hover{
+    filter: brightness(140%);
+}
 .textarea{
     height: 70px;
     max-height: 120px;
@@ -185,9 +215,75 @@
 .seller_product_collection{
     display: flex;
     justify-content:space-between;
-    flex-wrap: wrap;
+    overflow-x: scroll;
+    max-width: 90vw;
+}
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    display: none;
+  }
+::-webkit-scrollbar-thumb {
+    background: cyan; 
+    border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+    box-shadow: 0px 0px 8px 2px cyan;
 }
 
 .DC3{
     width: 300px;
+}
+
+
+
+.DC1:hover,.DC2:hover,.DC3:hover{
+    box-shadow: 0px 0px 10px 3px cyan;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width:1100px){
+    .DC1{
+        flex-direction: row;
+        width: 80vw;
+        justify-content: center;
+        margin: auto;
+        margin-top: 20px;
+        padding: 0px;
+        border: none;
+    }
+    .DC1 > div{
+        margin: 5px;
+        max-width: 30vw;
+        font-size: 10px;
+    }
+    .DC2{
+       padding: 0px;
+       margin: auto;
+    }
+    .product_data{
+        position: relative;
+        max-width: 90vw;
+        top: 0px;
+        right: 0px;
+        margin: auto;
+        margin-top: 10px;
+
+    }
+    .addProduct{
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        margin-top: 10px;
+    }
+    .addProduct > span{
+        font-size: 50px;
+    }
 }

@@ -5,7 +5,7 @@ export const loginUser = (userCredentials) => async(dispatch)=>{
   console.log("BIENG LOGGED IN")
     try{
       const data = await loginuser(userCredentials);
-      if(data!=undefined){
+      if(data!==undefined){
         dispatch({type:LOGIN,payload:data})
       }
     }catch(err){

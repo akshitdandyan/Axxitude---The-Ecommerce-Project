@@ -13,7 +13,7 @@ function Signin() {
         <div className="signin">
             <div className="signinheading"><h1>Sign In</h1></div>
             <form>
-                <div>
+                <div className='signin_inputs'>
                     <label>Email</label>
                     <input type="email" onChange={(e)=>setUserCredentials({...userCredentials,email:e.target.value})} required />
                     <br />

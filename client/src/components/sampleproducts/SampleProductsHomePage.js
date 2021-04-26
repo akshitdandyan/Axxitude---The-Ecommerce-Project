@@ -1,6 +1,7 @@
 import React from 'react';
 import Categories from '../categories/Categories';
 import SampleProducts from './SampleProducts';
+import {Helmet} from 'react-helmet'
 function SampleProductsHomePage() {
     const styles={
         display: "flex",
@@ -9,6 +10,7 @@ function SampleProductsHomePage() {
     };
     return (
         <>
+        <Helmet><title>Axxitude|Think Buy Grow</title></Helmet>
             <div style={styles}>
                 <section>
                     <Categories />
