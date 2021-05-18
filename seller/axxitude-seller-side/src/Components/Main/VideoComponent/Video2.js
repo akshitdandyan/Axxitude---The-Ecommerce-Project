@@ -7,7 +7,8 @@ function Video2() {
                 Begin your business journey.
                 Pack your products, upload to Axxitude.
                 Wait for getting them into carts.
-                And collect your cash.
+                Get Real Time Analysis for your Product, 
+                Only on Axxitude Sellers.
             </h1>
             <video muted loop autoPlay>
                 <source src={man_taping_box}type="video/mp4"/>

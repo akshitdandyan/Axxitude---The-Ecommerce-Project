@@ -1,29 +1,41 @@
 import React,{useState} from 'react';
 import { useDispatch} from 'react-redux'; 
 import './register.css';
-import { registerUser } from '../actions/actions.js';
-// import {useHistory} from 'react-router-dom';
+import { registerUser, setNewPopUp } from '../actions/actions.js';
+import {useHistory} from 'react-router-dom';
 import FileBase from 'react-file-base64';
-import { loginUser } from '../actions/actions.js';
 import { Helmet } from 'react-helmet';
+import AuthProcess from '../../Loading/AuthProcess';
 
 function Register() {
     // const isLoggedIn = useSelector(state => state.isLoggedReducer)
-    // const history = useHistory();
+    const history = useHistory();
     const [newUserData,setNewUserData]=useState({firstname:'',lastname:'',email:'',address:'',occupation:'',phone:'',password:'',cpassword:'',image:''})
     const dispatch = useDispatch();
+    const [isProcessing,setIsProcessing] = useState(false)
     const onSubmit = async(e) => {
         e.preventDefault()
         if (newUserData.password!==newUserData.cpassword){
-            window.alert("CHECK PASSWORDS AGAIN")
+            const popUpData = {title:"Passwords Not Matching",body:"Go Grab some coffe, you should be active while signing up"};
+            dispatch(setNewPopUp(popUpData))
+            return
         }
-        await dispatch(registerUser(newUserData));
-        const loginCredentials={email:newUserData.email,password:newUserData.password}
-        dispatch(loginUser(loginCredentials));
+        setIsProcessing(true)
+        const isregistered = await dispatch(registerUser(newUserData));
+        if(isregistered===false){
+            const popUpData = {title:"No Way Mate",body:"An account with this email id is already registered. Try Another One"};
+            dispatch(setNewPopUp(popUpData))
+        }else if(isregistered===true){
+            history.push('/')
+            window.location.reload()
+        }
     };
+
     return (
+        <div className='registerContainer'>
+            {isProcessing && <AuthProcess />}
         <div className="register">
-            <Helmet><title>Register</title></Helmet>
+            <Helmet><title>Axxitude | Register</title></Helmet>
             <div className="registerheading">
                 <h1>Register on Axxitude</h1>
             </div><br />
@@ -74,6 +86,7 @@ function Register() {
                 </div>
             </form>
 
+        </div>
         </div>
     )
 }

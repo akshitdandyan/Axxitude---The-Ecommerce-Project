@@ -9,6 +9,14 @@ const SellerProductSchema = Mongoose.Schema({
     Tags: String,
     ProductImage: String,
     ProductNumber: Number,
+    ad:{
+        type:Boolean,
+        default:false
+    },
+    Reviews:{
+        type:Array,
+        default:[]
+    },
     LaunchedTime:{
         type:Date,
         default: new Date().toUTCString()

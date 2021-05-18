@@ -1,11 +1,12 @@
 import express from 'express';
 import RegisteredUser from '../models/RegisterUser.js';
 import SellerAccount from '../models/SellerAccount.js';
-import SellerProduct from '../models/SellerProduct.js'
-import mongoose from 'mongoose'
+import SellerProduct from '../models/SellerProduct.js';
+import feedback from '../models/Feedback.js';
+import mongoose from 'mongoose';
 
 const router = express.Router();
-
+//CLIENT
 export const registerUser = async (req, res) => {
     const { firstname,lastname,email,address,occupation,phone,password,cpassword,image} = req.body;
     const shouldReturn = await RegisteredUser.find({email:email})
@@ -26,23 +27,96 @@ export const registerUser = async (req, res) => {
 
 export const getUser = async(req,res)=>{
     const {email} = req.body;
+    console.log(email);
     try{
         const user = await RegisteredUser.find({email:email});
-        res.status(200).json(user)
+        res.status(200).json(user) 
+        console.log('userdatasent');
     }catch(error){
         console.log("CONTROLLERS",error)
     }
 }
+export const addToCart = async (req,res) => {
+    const  cartData  = req.body;
+    try {
+        await RegisteredUser.findOneAndUpdate(
+                {email:cartData.userEmail},
+                {$push:{cart:cartData.product}}
+            )
+        console.log("Added to Cart");
+    } catch (error) {
+        console.log("WOOPS",error);
+    }
+}
+export const removeFromCart = async (req, res) => {
+    const { productID,userID } = req.body;
+    const user = await RegisteredUser.findById(userID);
+    const updatedCart = user.cart.filter((cartItem)=>cartItem._id != productID)
+    await RegisteredUser.findByIdAndUpdate(userID,{cart:updatedCart},{new:true});
+    res.status(200).json('cart updated')
 
+}
+export const buyItem = async(req,res) => {
+    const {userID,product} = req.body;
+    try {
+        await RegisteredUser.findByIdAndUpdate(userID,{$push:{itemsToBeBought:product}},{new:true});
+        const SellerEmail = product.SellerEmail;
+        const seller = SellerAccount.find({Email:SellerEmail})
+        console.log(seller);
+        var soldProducts = 0;
+        if(seller.ProductsSold !==undefined){
+            soldProducts = seller.ProductsSold
+        }
+        const hm = await SellerAccount.findOneAndUpdate({Email:SellerEmail},{ProductsSold:soldProducts+1},{new:true})
+        console.log("ITEM BOUGHT");
+        res.status(200).json('success');
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const cancelOrder = async(req,res) =>{
+    const { userID,product } = req.body;
+    try {
+        const user = await RegisteredUser.findById(userID);
+        const updatedItemsToBeBought = user.cart.filter((Item)=>Item._id != product._id)
+        await RegisteredUser.findByIdAndUpdate(userID,{itemsToBeBought:updatedItemsToBeBought},{new:true})
+
+        res.status(200).json("success")
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const updateAddress = async(req,res) => {
+    const {userID,new_address} = req.body;
+    try {
+        const updatedDetails = await RegisteredUser.findByIdAndUpdate(userID,{address:new_address},{new:true});
+        res.status(200).json(updatedDetails)
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const postReview = async(req,res) => {
+    const { productID,review } = req.body;
+    console.log(review);
+    try {
+        await SellerProduct.findByIdAndUpdate(productID,{$push:{Reviews:review}},{new:true});
+        console.log('Review Added');
+        res.status(200).json(true)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//SELLER
 export const seller_Account = async(req,res)=>{
-    const {Fullname,BusinessName,BusinessType,StoreAddress,Email,ContactNumber,Password,ProfilePicture} = req.body;
+    const {Fullname,BusinessName,BusinessType,Gender,StoreAddress,Email,ContactNumber,Password,ProfilePicture} = req.body;
     const checkAlreadyRegistered = await SellerAccount.find({Email:Email})
     if(checkAlreadyRegistered.length){
         res.status(400).json(false)
         console.log("Email already registered")
         return
     }
-    const newSellerAccount = new SellerAccount({Fullname,BusinessName,BusinessType,StoreAddress,Email,ContactNumber,Password,ProfilePicture})
+    const newSellerAccount = new SellerAccount({Fullname,BusinessName,BusinessType,StoreAddress,Gender,Email,ContactNumber,Password,ProfilePicture})
     try {
         await newSellerAccount.save();
         res.status(201).json(true)
@@ -59,6 +133,7 @@ export const getProductsFromSellers = async(req,res)=>{
 
 export const sellerLogin = async(req,res) => {
     const {userEmail} =  (req.query)
+    console.log(userEmail);
     const sellerData = await SellerAccount.find({Email:userEmail})
     res.status(200).json(sellerData) 
 }
@@ -101,7 +176,42 @@ export const incClickOnProduct = async(req,res) =>{
     const currSeller = await SellerAccount.find({Email:SellerEmail})
     const currProductsClicked = currSeller[0].ProductsClicked
     await SellerAccount.findOneAndUpdate({Email:SellerEmail}, { ProductsClicked: currProductsClicked+1}, { new: true });
+    console.log('CLICKED API');
     res.status(200).json(true);
 }
 
+export const sponserNewProduct = async(req,res) => {
+    const { productID } = req.body;
+    await SellerProduct.findByIdAndUpdate(productID,{ad:true},{new:true})
+    res.status(200)
+}
+export const updateSellerData = async(req,res) => {
+    const {Fullname,BusinessName,BusinessType,StoreAddress,Email,ContactNumber,Password,_id} = req.body.updatedDATA;
+    try {
+        await SellerAccount.findByIdAndUpdate(_id,{Fullname,BusinessName,BusinessType,StoreAddress,Email,ContactNumber,Password,_id},{new:true});
+        res.status(201)
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const addBankDetail = async(req,res) => {
+    const{_id,bank} = req.body;
+    try {
+        await SellerAccount.findOneAndUpdate(_id,{Bank:bank},{new:true})
+        res.status(200)
+    } catch (error) {
+        console.log(error);
+    }
+}
+// Feedbacks
+export const newFeedback = async(req,res) => {
+    const {name,email,message} = req.body;
+    const newFeedBack =  feedback({ Name:name, Email:email, Message:message });
+    try {
+        await newFeedBack.save()
+        res.status(200)
+    } catch (error) {
+        console.log(error);
+    }
+}
 export default router; 

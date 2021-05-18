@@ -1,6 +1,6 @@
 .header-register-component-merge-effect-1{
     height: 200px;
-    background: linear-gradient(black,rgb(7, 35, 68));
+    background: linear-gradient(black,black,rgb(7, 35, 68));
     margin: 0px;
 }
 .header-register-component-merge-effect-2{
@@ -25,6 +25,36 @@
     margin-top: -100px;
     margin-bottom: -100px;
     z-index: 10;
+}
+.registration_form_container .gender_radio{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.gender_choose{
+    width: 250px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.gender_label{
+    margin-left: 5px;
+    font-size: 20px;
+}
+.male{
+    border: 2px rgb(24, 30, 93) solid;
+}
+.male_filled{
+    background-color: rgb(24, 30, 93) ;
+}
+.female_filled{
+    background-color: rgb(96, 32, 43) ;
+    margin-left: 20px;
+}
+.female{
+    margin-left: 20px;
+    border: 2px rgb(96, 32, 43) solid;
 }
 .registration_form_container,.axx-form label,input,textarea{
     display: block;

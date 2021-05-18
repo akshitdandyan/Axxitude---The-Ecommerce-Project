@@ -1,0 +1,55 @@
+.AccountManagement{
+    font-family: "Sarala";
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1000%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M509.58 290.79a8.81 8.81 0 1 0 7.3-16.03z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M1161.34 208.77L1190.59 208.77L1190.59 224.96L1161.34 224.96z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M1357.89 493.62L1359.72 493.62L1359.72 542.43L1357.89 542.43z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M1305.78 476.7a30.47 30.47 0 1 0-29.41-53.37z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M228.08 283.41a0.86 0.86 0 1 0-1.51 0.82z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M1083.89 57.76L1116.8 57.76L1116.8 79.72L1083.89 79.72z' stroke='%23e73635'%3e%3c/path%3e%3cpath d='M408.54 225.13L444.23 225.13L444.23 260.82L408.54 260.82z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M162.4 446.54L202.27 446.54L202.27 459.35L162.4 459.35z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M583.38 389.86L601.11 389.86L601.11 419.79L583.38 419.79z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M561.39 105.33L581.71 105.33L581.71 125.65L561.39 125.65z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M992.43 470.77 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M1264.06 111.03L1268.18 111.03L1268.18 137.93L1264.06 137.93z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M1373.94 110.28L1408.43 110.28L1408.43 116L1373.94 116z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M431.35 305.8a18.4 18.4 0 1 0-23.59 28.25z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M872.96 374.95L904.97 374.95L904.97 409.81L872.96 409.81z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M556.95 128.44L589.8 128.44L589.8 161.29L556.95 161.29z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M101.93 346.14a32.59 32.59 0 1 0-33.03 56.19z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M242.88 469.52L245.81 469.52L245.81 472.45L242.88 472.45z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M870.43 180.93 a51.15 51.15 0 1 0 102.3 0 a51.15 51.15 0 1 0 -102.3 0z' stroke='%23e73635'%3e%3c/path%3e%3cpath d='M1355.15 176.89a4.61 4.61 0 1 0 8.4-3.82z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M1192.92 78.15a36.05 36.05 0 1 0-1.9-72.07z' stroke='%23e73635'%3e%3c/path%3e%3cpath d='M1074.61 276.59L1096.45 276.59L1096.45 308.67L1074.61 308.67z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M952.98 244.46 a50.06 50.06 0 1 0 100.12 0 a50.06 50.06 0 1 0 -100.12 0z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M369.52 535.03 a15.3 15.3 0 1 0 30.6 0 a15.3 15.3 0 1 0 -30.6 0z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M1137.29 358.96L1162.04 358.96L1162.04 383.71L1137.29 383.71z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M858.23 344.97a54.45 54.45 0 1 0-54.98-94z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M336.96 45.13L385.08 45.13L385.08 93.25L336.96 93.25z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M1322.18 89.59L1337.25 89.59L1337.25 104.66L1322.18 104.66z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M1006.35 272.91a27.63 27.63 0 1 0 50.81-21.72z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M1202.24 19.84 a31.18 31.18 0 1 0 62.36 0 a31.18 31.18 0 1 0 -62.36 0z' stroke='%23e73635'%3e%3c/path%3e%3cpath d='M159.09 435.82L205.61 435.82L205.61 452.39L159.09 452.39z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M1098.65 501.31L1150.96 501.31L1150.96 553.62L1098.65 553.62z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M295.1 20.06L326.46 20.06L326.46 46.8L295.1 46.8z' fill='%23e73635'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1000'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+}
+.AccountManagement h1{
+    margin: 0px;
+    text-align: center;
+    color: aqua;
+}
+.manageAccountInfo{
+    color: rgb(72, 208, 115);
+}
+.SellerAccountData{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.SellerAccountDataChild{
+    border-bottom: 3px rgb(9, 165, 6) solid;
+    box-shadow: 0px 0px 20px 1px rgb(25, 248, 25);
+}
+.SellerAccountDetailTitle{
+    color: green;
+    font-size: 25px;
+}
+.SellerAccountDataChild>input{
+    outline: none;
+    border: none;
+    border-bottom: 2px white solid;
+    background: none;
+    color: aliceblue;
+    font-size: 20px;
+    font-style: italic;
+    width: 100%;
+}
+.btn_cont{
+    display: flex;
+    justify-content: center;
+}
+.btn_cont>button{
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    background: rgb(6, 72, 204);
+    color: aliceblue;
+    padding: 10px;
+    font-family: "Sarala";
+    font-size: 12px;
+    border-radius: 5px;
+}
+.btn_cont>button:hover{
+    transition: 0.4s;
+    filter: brightness(150%);
+}

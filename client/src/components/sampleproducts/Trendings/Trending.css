@@ -1,0 +1,101 @@
+.Trendings{
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    margin-top: -450px;
+    /* height: 500px; */
+}
+.trendingBlur{
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-image: url("./../../../media/sampleImages/TBG2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(80%) blur(4px);
+}
+.Trendings > h1 {
+    font-family: 'Arizonia';
+    color: white;
+    filter: brightness(100%);
+    text-align: center;
+    font-weight: 100;
+    font-size: 40px;
+    text-shadow: 0px 2px  cyan ;
+    background: #0e8dbc;
+    color: white;
+    text-shadow: 0 1px 0 #ccc,
+                 0 2px 0 #c9c9c9,
+                 0 3px 0 #bbb,
+                 0 4px 0 #b9b9b9,
+                 0 5px 0 #aaa,
+                 0 6px 1px rgba(0,0,0,.1),
+                 0 0 5px rgba(0,0,0,.1),
+                 0 1px 3px rgba(0,0,0,.3),
+                 0 3px 5px rgba(0,0,0,.2),
+                 0 5px 10px rgba(0,0,0,.25),
+                 0 10px 10px rgba(0,0,0,.2),
+                 0 20px 20px rgba(0,0,0,.15);
+}
+.TProductContainer{
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+/* EACH TRENDING PRODUCT */
+.EachTProduct{
+    margin: 30px;
+    width: 300px;
+    height: 500px;
+    min-width: 300px;
+    min-height: 400px;
+    max-width: 90vw;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 20px 5px rgb(86, 86, 144);
+}
+.EachTProduct:hover{
+    transition: 0.4s;
+    transform: scale(1.05);
+}
+.EachTProduct> img{
+    width: 300px;
+    height: 300px;
+}
+.TDetails{
+    height: 200px;
+    background: rgb(228, 219, 219);
+    filter: opacity(70%);
+}
+.TName{
+    font-family: arial;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 30px;
+    color: #28c77d;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-shadow: 0px 0px 0 rgb(30,189,115),
+    -1px 0px 0 rgb(19,178,104),
+    -2px 0px 0 rgb(9,168,94),
+    -3px 0px 0 rgb(-2,157,83),
+    -4px 0px  0 rgb(-12,147,73),
+    -5px 0px 4px rgba(0,0,0,0.31),
+    -5px 0px 1px rgba(0,0,0,0.5),
+    0px 0px 4px rgba(0,0,0,.2);
+}
+.TDescription{
+    font-family: "Sarala";
+    font-style: italic;
+    padding: 10px;
+}
+.TTiming{
+    font-size: 30px;
+    font-family: "Sarala";
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0px 10px 5px #234D3C;
+}

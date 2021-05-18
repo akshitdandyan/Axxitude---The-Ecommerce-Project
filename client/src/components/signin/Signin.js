@@ -1,16 +1,34 @@
 import React,{useState} from 'react';
 import './signin.css';
 import {useDispatch} from 'react-redux';
-import { loginUser } from '../actions/actions.js';
+import { loginUser, setNewPopUp } from '../actions/actions.js';
+import {useHistory} from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import AuthProcess from '../../Loading/AuthProcess'
+
 function Signin() { 
     const dispatch = useDispatch();
+    const history = useHistory();
     const [userCredentials,setUserCredentials]=useState({email:'',password:''})
-    const onsubmit = (e) =>{
+    const [rotate,setRotate] = useState(false)
+    const onsubmit = async(e) =>{
         e.preventDefault()
-        dispatch(loginUser(userCredentials));
+        setRotate(true)
+        const res = await dispatch(loginUser(userCredentials));
+        if(res){
+            history.push("/")
+        }else{
+            setRotate(false)
+            const popUpData = {title:"Invalid Credentials",body:"If you have not account you can do sign up. It won't take more than a minute"};
+            dispatch(setNewPopUp(popUpData))
+            return
+        }
     }
     return (
+        <div className='sigin_container'>
         <div className="signin">
+            <Helmet><title>Axxitude | Sign In</title></Helmet>
+            {rotate && <AuthProcess />}
             <div className="signinheading"><h1>Sign In</h1></div>
             <form>
                 <div className='signin_inputs'>
@@ -22,6 +40,7 @@ function Signin() {
                 </div>
                 <button onClick={onsubmit}>Log In</button>
             </form>
+        </div>
         </div>
     )
 }

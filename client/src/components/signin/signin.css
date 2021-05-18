@@ -1,13 +1,22 @@
+.sigin_container{
+    background-color: white;
+    margin-top: -50px;
+    margin-bottom: -50px;
+    padding-top: 30px;
+    padding-bottom: 70px;
+    position: relative;
+    /* min-width: 100vw; */
+}
 .signin{
     position: relative;
     width: 500px;
-    max-width: 80vw;
+    max-width: 90vw;
     margin: auto;
+    border-radius: 20px;
     background: linear-gradient(90deg,rgb(68, 143, 78),rgb(168, 168, 128));
     padding: 40px;
-    margin-top: 50px;
-    box-shadow: transparent red 0px 0px 5px 10px;
-    box-shadow: 10px 10px 5px #aaaaaa;
+    box-shadow: 0px 10px 32px 4px grey;
+    box-sizing: border-box;
 }
 h1{
     font-family: arial;

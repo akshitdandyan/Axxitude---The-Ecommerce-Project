@@ -1,0 +1,35 @@
+.AuthProcess{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 1000;
+    top: 0px;
+    filter: opacity(50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.AuthProcess_Rotator{
+    width: 200px;
+    height: 200px;
+    border-top: 7px rgb(17, 58, 125) solid;
+    border-radius: 50%;
+    animation: rotator infinite linear  1s;
+}
+
+@keyframes rotator {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(90deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(270deg);
+    }
+}

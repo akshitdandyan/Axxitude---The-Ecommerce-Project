@@ -17,10 +17,59 @@
         transform: rotate(120deg);
     }
 }
+.loadingProductANIMECONT{
+    display: block;
+}
+.meme{
+    color: aliceblue;
+    text-align: center;
+    font-style: italic; 
+    margin-top: 70px;
+    border-radius: 20px;
+    font-size: 18px;
+
+}
 .allsampleproducts{
+    margin-top: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content:space-evenly;
     flex-wrap: wrap;
+}
+.SearchBox{
+    display:flex;
+    justify-content:center;
+    min-width:90vw;
+    position: sticky;
+    top: 100px;
+    filter:opacity(40%);
+    z-index: 10;
+    filter:brightness(60%)
+}
+.SearchBox:hover{
+    filter: brightness(100%);
+}
+/* page indexing */
+.pageIndexing{
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    bottom: 5px;
+    z-index: 50;
+}
+.pageIndexing>div{
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    box-shadow: 0px 0px 10px 2px grey;
+    color: black;
+    border-radius: 7px;
+    margin: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    padding-top: 10px;
+    cursor: pointer;
 }
 
 /* loading animation */
@@ -29,6 +78,7 @@
     text-align: center;
     display: flex;
     justify-content: center;
+    margin-top: 40px;
 }
 .sla{
     width: 20px;
@@ -74,4 +124,44 @@
     100%{
         bottom: 30px;
     }
+}
+
+/* Seller Promotional Pop up */
+.seller_promotional_pop_up{
+    display: block;
+    width: 200px;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    border-radius: 20px;
+    background: rgb(206, 223, 223);
+    box-sizing: border-box;
+    font-family: 'Sarala';
+    z-index: 55;
+    padding: 30px;
+    text-align: center;
+    border-bottom: 3px rgb(20, 82, 159) solid;
+    box-shadow: 0px 3px 10px 2px rgb(70, 85, 106);
+}
+.seller_promotional_pop_up>p>a{
+    text-decoration: none;
+    color: rgb(54, 90, 13);
+}
+.close_pop_up{
+    width: 80%;
+    margin: auto;
+    background-color: skyblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 40px;
+    margin-top: 15px;
+    cursor: pointer;
+    color: green;
+}
+.close_pop_up:hover{
+    background-color: rgb(24, 169, 226);
+    color: white;
+}
+.seller_promotional_pop_up_close{
+    display: none;
 }

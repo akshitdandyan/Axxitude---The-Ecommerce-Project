@@ -10,6 +10,14 @@ const userSchema = mongoose.Schema({
     password:String,
     cpassword:String,
     image:String,
+    cart:{
+        type:Array,
+        default:[]
+    },
+    itemsToBeBought:{
+        type:Array,
+        default:[]
+    },
     createdAt: {
         type: Date,
         default: new Date(),

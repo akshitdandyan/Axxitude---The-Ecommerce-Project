@@ -1,0 +1,14 @@
+.adContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.sponsored{
+    border-top: 2px white solid;
+    width: 100vw;
+}
+.sponsored>h3{
+    font-style: italic;
+    font-family: "Sarala";
+    color: white;
+}

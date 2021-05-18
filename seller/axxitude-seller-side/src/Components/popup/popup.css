@@ -1,0 +1,50 @@
+.popUpContainer{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50px;
+    width: 100vw;
+}
+.the_pop_up{
+    background-color: rgb(38, 41, 41);
+    color: white;
+    position: fixed;
+    margin-top: -400px;
+    width: 200px;
+    max-width: 80vw;
+    border: 2px black solid;
+    border-radius: 30px;
+    text-align: center;
+    font-family: "Sarala";
+    transition: 0.5s;
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+    padding-bottom: 4px;
+    z-index: 999;
+}
+.the_pop_up>.btn{
+    width: 50px;
+    margin: auto;
+    border-bottom: 2px transparent solid;
+    border-top: 3px transparent solid;
+}
+.the_pop_up>.btn:hover{
+    border-bottom: 3px cornflowerblue solid;
+    border-top: 3px cornflowerblue solid;
+    box-sizing: border-box;
+}
+.title_of_pop_up{
+    /* height: 40px; */
+    border-bottom: 4px black solid;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.body_of_pop_up{
+    font-size: 14px;
+    font-style: italic;
+}
+.show_the_pop_up{
+    margin-top: 0px;
+}

@@ -6,6 +6,7 @@ const sellerSchema = mongoose.Schema({
     BusinessType : String,
     StoreAddress : String,
     Email : String,
+    Gender: String,
     ContactNumber : Number,
     Password : String,
     ProfilePicture: String,
@@ -15,7 +16,11 @@ const sellerSchema = mongoose.Schema({
     },
     TotalProducts:{
         type:Number,
-        default:1
+        default:0
+    },
+    ProductsSold:{
+        type:Number,
+        default:0
     },
     businessStartDate:{
         type:Date,

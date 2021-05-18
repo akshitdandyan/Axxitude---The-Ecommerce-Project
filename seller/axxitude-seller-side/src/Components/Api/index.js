@@ -51,3 +51,17 @@ export const deleteProduct = async(id) => {
         console.log('SORRY',error);
     }
 }
+export const advertiseProduct = async(productID)=>{
+    try{
+        await axios.post(`${url}/sponser-new-product`,{productID})
+    }catch(error){
+        console.log(error);
+    }
+}
+export const updateSellerAccountData = async(updatedDATA) => {
+    try {
+        await axios.post(`${url}/update-seller-account`,{updatedDATA})
+    } catch (error) {
+        console.log(error);
+    }
+}

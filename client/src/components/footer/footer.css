@@ -3,16 +3,20 @@
     color: white;
     font-family:  'Sarala';
     height: auto;
-    margin-top: 50px;
-    padding: 10px;
+    padding: 10px; 
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-
+    /* margin-top: 30px; */
+    padding-top: 60px;
 }
 .part{
     width: 210px;
     margin: 20px;
+}
+.connectwithus>div>a{
+    text-decoration: none;
+    color:white
 }
 .part p{
     font-size: 15px;

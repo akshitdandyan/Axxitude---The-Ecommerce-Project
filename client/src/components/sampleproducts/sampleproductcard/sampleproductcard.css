@@ -1,132 +1,35 @@
-/* .sampleproductcard{
-    width: 200px;
-    height: 400px;
-    padding: 25px;
-    position: relative;
-    border-radius: 20px;
-    border: 4px rgb(4, 31, 66) solid;
-    color: white;
-    background:linear-gradient(white,rgb(14, 107, 110));
-    box-shadow: inset 0px 0px 15px 7px rgb(68, 68, 70);
-    font-family: 'ZCOOL XiaoWei';
-    margin: 10px;
-    transition: 0.3s;
-    filter: opacity(90%);
-}
-.sampleproductcard:hover{
-    transform: scale(1.06);
-}
-.sampleproductimg{
-    width: 200px;
-    height: 200px;
-    position: relative;
-    box-shadow: 0px 0px 5px 2px rgb(57, 58, 57);
-}
-.sampleproductimg img{
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    width: 100%;
-    height: 100%;
-}
-.sampleproductdetail{
-    height: 200px;
-    filter: opacity(50%);
-    overflow: hidden;
-} 
-.sampleproductprice{
-    color: black;
-}
-.fa-check-circle{
-    color: green;
-    filter: opacity(100%);
-    font-size: 18px;
-}
-.fromAxxitude{
-    display: inline;
-    font-family:  'Sarala';
-    color: green;
-    font-size: 18px;
-}
-.sampleproducttitle{
-    color: rgb(23, 27, 80);
-    border-radius: 20px;
-    padding: 5px;
-    background-color: honeydew;
-    opacity: 90%;
-}
-.sampleproductdescription{
-    color: white;
-}
-@media only screen and (max-width: 580px) {
-    .sampleproductcard{
-        width: 100px;
-        height: 200px;
-        padding: 0px;
-        position: relative;
-        border-radius: 0px;
-        border: 1px rgb(86, 89, 92) solid;
-        color: white;
-        font-family: 'ZCOOL XiaoWei';
-        margin: 5px;
-        transition: 0.3s;
-        box-shadow: none;
-        filter: opacity(100%);
-    }
-    .sampleproductimg{
-        width: 100px;
-        height: 100px;
-        position: relative;
-        box-shadow: 0px 0px 5px 2px rgb(57, 58, 57);
-    }
-    .sampleproductdetail{
-        filter: opacity(100%);
-        overflow: hidden;
-    }
-    .sampleproductprice{
-        margin-top: -10px;
-        font-size: 10px;
-    }
-    .sampleproducttitle{
-        font-size: 10px;
-        max-height: 20px;
-        overflow: hidden;
-        background-color: transparent;
-        color: white;
-        padding: 0px;
-        border-radius: 0px;
-    }
-    .sampleproductdescription{
-        display: none;
-    }
-  } */
-
 .sampleproductcard{
     width: auto;
-    height: auto;
+    height: 115px;
     margin: 10px;
     box-sizing: border-box;
     display: flex;
     padding: 5px;
-    flex-wrap: wrap;
-    justify-content:stretch;
-    box-shadow: inset 3px 2px 30px 5px rgb(143, 221, 233);
-    background: rgba(143, 221, 233, 0.3);
+    flex-direction: row;
+    box-shadow: inset 3px 2px 30px 5px rgb(5, 56, 101);
+    background: rgba(188, 189, 189);
     max-width: 80vw;
+    overflow:hidden;
+    cursor: pointer;
+    border-radius: 10px;
+    z-index: 1;
 }
 .sampleproductcard:hover{
     background: rgba(143, 221, 233, 0.1);
     transition: 0.3s;    
-    transform: scale(0.9);
-    box-shadow: inset 3px 2px 10px 2px rgb(54, 133, 112);
+    background-color: white;
 }
 .sampleproductimg{
     display: inline;
     width: 100px;
+    max-width: 100px;
+    max-height: 100px;
     height: 100px;
 }
 .sampleproductimg img{
     height: 100%;
     width: 100%;
+    border-radius: 10px;
 }
 .sampleproductdetail{
     margin: 4px;
@@ -135,14 +38,24 @@
     height: 100px;
 }
 .sampleproducttitle{
+    position: relative;
+    height: 50px;
+    overflow: hidden;
     font-size: 0.8em;
-    font-family: 'ZCOOL XiaoWei';
+    font-family: 'Arial';
+}
+.control_title_overflow{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
 }
 .sampleproductprice{
     font-family: 'Sarala';
 }
 .axxitudeverified{
     color: green;
+    font-size: 12px;
 }
 .axxv{
     display: flex;
@@ -151,6 +64,34 @@
     margin-top: 3px;
 }
 .fromAxxitude{
+    position: relative;
+    top: 3px;
     margin-left: 5px;
     font-family: 'ZCOOL XiaoWei';
+}
+@media only screen and (max-width:680px){
+    .sampleproductcard{
+        width: 112px;
+        height: 230px;
+        flex-direction: column;
+        max-width: 120px;
+        background: white;
+        margin: 5px;
+        box-shadow: none;
+        border-radius: 20px;
+    }
+    .sampleproductimg{
+        width: 100%;
+        height: auto;
+    }
+    .sampleproductdetail{
+        width: 100%;
+    }
+    .control_title_overflow{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        background: linear-gradient(transparent,transparent,rgba(255, 255, 255, 1));
+    }
 }

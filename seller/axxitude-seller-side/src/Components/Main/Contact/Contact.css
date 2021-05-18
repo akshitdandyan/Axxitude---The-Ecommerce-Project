@@ -1,0 +1,54 @@
+.contact{
+    background: rgb(2, 55, 81);
+    color: white;
+    font-family: "Sarala";
+}
+.regards{
+    font-size: 20px;
+    font-style: oblique;
+    padding: 20px;
+    text-align: center;
+}
+.contactForm{
+    margin: 20px;
+    border-radius:20px ;
+    width: 400px;
+    margin: auto;
+    max-width: 90vw;
+    background-color: ghostwhite;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.contactForm>div{
+    width: 100px;
+    max-width: 80vw;
+    margin: auto;
+    margin-top: 20px;
+}
+.contactForm>div>input{
+    font-size: 14px;
+    padding: 4px;
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: 3px green solid;   
+}
+.contactForm>.btn{
+    background-color: rgb(45, 96, 198);
+    text-align: center;
+    border-radius: 12px;
+}
+.socialMedia{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.socialMedia>a{
+    font-size: 50px;
+    text-decoration: none;
+    color: white;
+}
+.socialMedia i:hover {
+    transition: 0.3s;
+    color: green;
+}

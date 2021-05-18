@@ -1,6 +1,9 @@
 .Product_card{
     width: 150px;
+    min-width: 150px;
     height: 300px;
+    max-height: 300px;
+    overflow: hidden;
     border: 1px grey solid;
     background-color: aliceblue;
     border-radius: 20px;
@@ -24,7 +27,7 @@
     text-align: center;
 }
 .Product_Name{
-    font-size: 20px;
+    font-size: 12px;
     font-weight: bolder;
 }
 .delete_product{
@@ -39,6 +42,19 @@
     box-sizing: border-box;
     color: red;
     box-shadow: -2px 2px 4px 1px rgb(12, 12, 12);
+}
+.Advertise_Product{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(15, 17, 18);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 15px;
+    padding: 6px;
+    box-sizing: border-box;
 }
 .delete_product:hover{
     box-shadow: none;

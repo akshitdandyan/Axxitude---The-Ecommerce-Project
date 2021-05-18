@@ -1,27 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import './categories.css';
-import CategoriesTable from './categoriestable/CategoriesTable';
-function Categories() {
-    var [showCategories, changeShowCategories] = useState(false);
-    return (
-        !showCategories ?
-            <h1 className="tableheading">
-                Categories
-                <span>
-                    <i className="fas fa-arrow-circle-down" onClick={() => changeShowCategories(true)}></i>
-                </span>
-            </h1>
-            :
-            <div>
-                <h1 className="tableheading">
-                    Categories
-                    <span>
-                        <i className="fas fa-arrow-circle-up" onClick={() => changeShowCategories(false)}></i>
-                    </span>
-                </h1>
-                <CategoriesTable />
-            </div>
 
+function Categories() {
+    const dispatch = useDispatch();
+    return (
+       <div className='categories'>
+           <div className='categoryItem' onClick={()=>dispatch({type:"CHANGECATEGORY",payload:"fashion"})}>
+               <div><i class="fas fa-tshirt"></i></div>
+               <div>Fashion</div>
+           </div>
+           <div className='categoryItem' onClick={()=>dispatch({type:"CHANGECATEGORY",payload:"jewelery"})}>
+               <div><i class="fas fa-gem"></i></div>
+               <div>Jewellery</div>
+            </div>
+           <div className='categoryItem' onClick={()=>dispatch({type:"CHANGECATEGORY",payload:"electronics"})}>
+               <div><i class="fas fa-laptop"></i></div>
+               <div>Electronics</div>
+            </div>
+           <div className='categoryItem' onClick={()=>dispatch({type:"CHANGECATEGORY",payload:"grocery"})}>
+               <div><i class="fas fa-shopping-basket"></i></div>
+               <div>Grocery</div>
+            </div>
+           <div className='categoryItem' onClick={()=>dispatch({type:"CHANGECATEGORY",payload:"other"})}>
+               <div><i class="fas fa-feather-alt"></i></div>
+               <div>Other</div>
+            </div>
+       </div>
     )
 }
 export default Categories;
