@@ -17,6 +17,7 @@ function Signin() {
         const res = await dispatch(loginUser(userCredentials));
         if(res){
             history.push("/")
+            window.location.reload()
         }else{
             setRotate(false)
             const popUpData = {title:"Invalid Credentials",body:"If you have not account you can do sign up. It won't take more than a minute"};

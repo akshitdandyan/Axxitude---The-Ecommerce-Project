@@ -1,12 +1,18 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "𝘈𝘟𝘟𝘐𝘛𝘜𝘋𝘌",
+  "name": "AXXITUDE",
   "icons": [
-    {
-      "src": "./favcon/favicon.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    }
+      {
+          "src": "./favicon/favicon.png",
+          "type": "image/png",
+          "sizes": "1024x1024"
+      },
+      {
+        "src": "./favicon/maskable_icon.png",
+        "sizes": "196x196",
+        "type": "image/png",
+        "purpose": "any maskable"
+      }
   ],
   "start_url": ".",
   "display": "standalone",

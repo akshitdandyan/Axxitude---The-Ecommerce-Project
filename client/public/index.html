@@ -1,43 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="./favicon/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <script src="https://kit.fontawesome.com/a00ef9665a.js" crossorigin="anonymous"></script>
-    <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=ZCOOL XiaoWei' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Sarala' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Farsan' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Architects Daughter' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet'>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="./favicon/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Axxitude - The Ecommerce" />
+  <link rel="apple-touch-icon" href="./favicon/favicon.png" />
+
+  <link rel="manifest" href="./manifest.json" />
+
+  <script src="https://kit.fontawesome.com/a00ef9665a.js" crossorigin="anonymous"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=ZCOOL XiaoWei' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Sarala' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Farsan' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Architects Daughter' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet'>
 
 
-    <title>AXXITUDE - Think Buy Grow</title>
-  </head>
-  <body>
 
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <script>
-        document.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
-        });
-    </script>
+  <title>AXXITUDE - Think Buy Grow</title>
+</head>
 
-  </body>
+<body>
+
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <script>
+    document.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+    });
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', async() => {
+        const register = await navigator.serviceWorker.register('./serviceworker.js')
+          .catch((error) => console.log("FAILURE ", error));
+        // Push Register
+        console.log("Registering push...");
+        const publicVapidKey = 'BMiMDVdgWxCYGWYm5tuhjra7WvM7IWyA9IVMZ5K-p_8cTHqWfzVAn09XfK38M85nuKlGmsSJBG7cl113_-iP6bg';
+        const subscription = await register.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey:urlBase64ToUint8Array(publicVapidKey)
+        })
+        console.log("Push Registered");
+        // Send Push
+        console.log("Sending push...");
+        await fetch('http://localhost:5000/subscribe',{
+          method:"POST",
+          body:JSON.stringify(subscription),
+          headers:{
+            'content-type':"application/json"
+          }
+        })
+        console.log('push sent...');
+      })
+    } else {
+      console.log('Browser is not supporting service worker');
+    }
+
+    function urlBase64ToUint8Array(base64String) {
+      const padding = '='.repeat((4 - base64String.length % 4) % 4);
+      const base64 = (base64String + padding)
+        .replace(/-/g, '+')
+        .replace(/_/g, '/');
+
+      const rawData = window.atob(base64);
+      const outputArray = new Uint8Array(rawData.length);
+
+      for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+      }
+      return outputArray;
+    }
+  </script>
+
+</body>
+
 </html>

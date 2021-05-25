@@ -110,7 +110,7 @@ const DC2 = () => {
                 </div>
                 <label>Tags (separated by space):<span>*</span></label>
                 <input type='text' required value={newProduct.Tags} onChange={(e) => setNewProduct({ ...newProduct, Tags: e.target.value })} />
-                <label>Choose Profile Picture</label>
+                <label style={{width:"100%",marginTop:"5px"}}>Upload Product Image <sup style={{fontSize:"12px"}}>(1 X 1 fits best)</sup></label>
                 <Filebase type='file' required multiple={false} onDone={({ base64 }) => setNewProduct({ ...newProduct, ProductImage: base64 })} />
                 <div className='btn-container'>
                     <button onClick={HandleClick}>Launch Product</button>

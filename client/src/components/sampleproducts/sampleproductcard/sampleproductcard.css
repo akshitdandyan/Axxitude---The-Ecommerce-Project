@@ -81,8 +81,11 @@
         border-radius: 20px;
     }
     .sampleproductimg{
-        width: 100%;
-        height: auto;
+        width: 112px;
+        height: 112px;
+    }
+    .sampleproductimg>img{
+        height: 100%;
     }
     .sampleproductdetail{
         width: 100%;

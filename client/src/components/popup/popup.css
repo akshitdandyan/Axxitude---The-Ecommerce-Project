@@ -35,7 +35,8 @@
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
+    padding: 6px;
 }
 .body_of_pop_up{
     font-size: 14px;

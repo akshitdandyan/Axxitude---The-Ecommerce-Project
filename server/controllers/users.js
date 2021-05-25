@@ -4,6 +4,9 @@ import SellerAccount from '../models/SellerAccount.js';
 import SellerProduct from '../models/SellerProduct.js';
 import feedback from '../models/Feedback.js';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const router = express.Router();
 //CLIENT
@@ -21,21 +24,25 @@ export const registerUser = async (req, res) => {
         res.status(201).json(newPostMessage );
         console.log("REGISTRED")
     } catch (error) {
-        res.status(409).json({ message: error.message });
+        res.status(400).json({ message: error.message });
     }
 }
 
 export const getUser = async(req,res)=>{
-    const {email} = req.body;
-    console.log(email);
+    const {email,password} = req.body;
     try{
-        const user = await RegisteredUser.find({email:email});
+        const user = await RegisteredUser.find({email:email,password:password});
+        if(user.length>0){
         res.status(200).json(user) 
         console.log('userdatasent');
+        }else{
+            res.status(400).json({"message":"not found"})
+        }
     }catch(error){
         console.log("CONTROLLERS",error)
     }
 }
+
 export const addToCart = async (req,res) => {
     const  cartData  = req.body;
     try {
@@ -214,4 +221,5 @@ export const newFeedback = async(req,res) => {
         console.log(error);
     }
 }
+
 export default router; 
