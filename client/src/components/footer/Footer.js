@@ -12,10 +12,10 @@ function Footer(){
             <div className="connectwithus part">
                 <h3>Connect with us</h3>
                 <div>
-                    <a href="https://www.linkedin.com/in/akshit-dandyan-604aaa1b3/" target='_pp'><p><i class="fab fa-linkedin"></i> Linkedin</p></a>
-                    <a href="https://www.instagram.com/theaxitjaat/" target="_pp"><p><i class="fab fa-instagram"></i> Instagram</p></a>
-                    <a href="https://wa.me/7082703944" target="_pp"><p><i class="fab fa-whatsapp"></i> Whatsapp</p></a>
-                    <a href="mailto:info@eraaxit.ml" target="_pp"><p><i class="far fa-envelope"></i> Email</p></a>
+                    <a href="https://www.linkedin.com/in/akshit-dandyan-604aaa1b3/" target='_pp'><p><i className="fab fa-linkedin"></i> Linkedin</p></a>
+                    <a href="https://www.instagram.com/theaxitjaat/" target="_pp"><p><i className="fab fa-instagram"></i> Instagram</p></a>
+                    <a href="https://wa.me/7082703944" target="_pp"><p><i className="fab fa-whatsapp"></i> Whatsapp</p></a>
+                    <a href="mailto:info@eraaxit.ml" target="_pp"><p><i className="far fa-envelope"></i> Email</p></a>
                 </div>
             </div>
 

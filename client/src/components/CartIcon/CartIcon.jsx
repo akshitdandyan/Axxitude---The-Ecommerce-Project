@@ -12,12 +12,12 @@ const CartIcon = () => {
     const cartItems = useSelector(state => state.cartReducer)
     const userData = useSelector(state => state.userData)
     const [inputActivated, setInputActivated] = useState(false)
-    const [address, setAddress] = useState('');
+    const [address, setAddress] = useState('Not Provided');
     const isLogged = useSelector(state => state.isLoggedReducer)
     const orderedItems = useSelector(state => state.buyItemsReducer)
     const dispatch = useDispatch();
     useEffect(() => {
-        setAddress(userData.address)
+        if(userData.address!=="") setAddress(userData.address)
     }, [cartItems,userData.address])
     const DoUpdateAddress = () => {
         dispatch(update_Address(userData._id, address))

@@ -1,14 +1,15 @@
 .registerContainer{
-    width: 100vw;
+    max-width: 100vw;
     margin-top: -50px;
     margin-bottom: -50px;
     background-color: white;
     padding-top: 20px;
     padding-bottom: 20px;
     position: relative;
+    min-height: 450px;
 }
 .register{
-    background: rgb(224, 223, 216);
+    background: rgb(245, 245, 245);
     border-radius: 30px;
     width: 800px;
     max-width: 80vw;
@@ -23,12 +24,36 @@
 .registerheading{
     text-align: center;
     font-family: 'Kalam';font-size: 22px;
-
+}
+.switcherRegisterType{
+    justify-content: center;
+    text-align: center;
+    font-family: "Sarala";
+    display: flex;
+}
+.switcherRegisterType>div{
+    padding: 4px;
+    flex: 0.4;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+    align-items: center;
+    background: aliceblue;
+}
+.switcherRegisterType>div>img{
+    height: 100%;
+    margin-left: 10px;
+    height: 20px;
+}
+.activeR{
+    background: rgb(166, 177, 186) !important;
 }
 .basicdetails{
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content:center;
+    flex-direction: column;
 }
 .basicdetails>span{
     display: inline-block;
@@ -39,15 +64,47 @@ label{
 }
 .signin_inputs>input,span > input{
     padding: 5px;
-    font-family: 'Farsan';font-size: 20px;
+    width: 300px;
+    max-width: 80vw;
+    font-family: 'Farsan';
+    font-size: 20px;
     outline: none;
     border: none;
     background: none;
-    border-bottom: 3px rgb(42, 41, 41) solid;
+    border-bottom: 2px rgb(0, 0, 0) solid;
+    color: black !important;
+    font-weight: bold;
+    margin-top: 5px;
+    background: transparent;
+}
+.imageInput{
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+}
+.IMAGEINPUT{
+    text-align: center;
+    padding: 10px;
+    background: rgb(13, 108, 155);
+    margin-top: 5px;
+    border-radius: 12px;
+    font-family: 'Sarala';
+    color: white;
+    width: 300px;
+    max-width: 80vw;
+    margin-left: -5px;
+}
+.dpselected{
+    color: green;
+    font-family: 'Sarala';
+    text-align: center;
 }
 button{
     display: block;
+    width: 100px;
     margin: 10px;
+    margin: auto;
+    margin-top: 20px;
     outline: none;
     border: none;
     padding: 10px;
@@ -59,18 +116,37 @@ button{
 button:hover{
     background: rgb(35, 78, 158);
 }
-.logogif{
-    height: 250px;
-    width: 250px;
-    background: url('./../../media/registergif.gif');
-    background-size: cover;
-}
 .moredetails{
-    margin-top: 30px;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content:center;
+    flex-direction: column;
 }
+.basicdetails>div,.moredetails>div{
+    margin: auto;
+    width: 300px;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+}
+.google_auth_container{
+    padding: 50px 40px;
+}
+.googleAuthContainer{
+    font-family: 'Sarala';
+    font-size: larger;
+    text-align: center;
+    background-color: aliceblue;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 14px;
+}
+.googleAuthContainer:hover{
+    transition: 0.3s;
+    box-shadow: none;
+}
+.googleAuthContainer img{
+    height: 30px;
+}
+
 @media only screen and (max-width:760px){
     .moredetails{
         margin: 0px;
@@ -80,6 +156,11 @@ button:hover{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .moredetails>div>div{
+        padding-left: 10px;
+        width: 200px;
     }
     .logogif{
         display: none;
@@ -103,5 +184,13 @@ button:hover{
         box-shadow:  none;
         padding: 30px;
         /* margin: 0px 0px 0px 0px; */
+    }
+    .switcherRegisterType{
+        margin: 10px 6px;
+    }
+    .switcherRegisterType>div{
+        flex: 0.5;
+        padding: 10px;
+        font-size: 14px;
     }
 }

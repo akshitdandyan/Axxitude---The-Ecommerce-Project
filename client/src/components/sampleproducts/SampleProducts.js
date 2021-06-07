@@ -43,14 +43,15 @@ function SampleProducts() {
         }
         setSearchItem(cat)
         setPreview(isPreview)
-        async function foo() {
-            const sellersData = await getProductsFromSellers();
-            setProductsFromSeller(sellersData.data)
-            const ads = sellersData.data.filter((item) => item.ad === true)
+        async function startFetchingProducts() {
+            const allproducts = await getProductsFromSellers();
+            if(!allproducts.length) return console.log("ERROR IN FETCHING PRODUCTS");
+            setProductsFromSeller(allproducts)
+            const ads = allproducts.filter((item) => item.ad === true)
             dispatch({ type: "FETCH_ADS", payload: ads })
             setProductsFromSellerLoaded(true)
         }
-        foo()
+        startFetchingProducts()
     }, [dispatch, cat, isPreview])
 
     const NextPage = () => {
@@ -139,11 +140,11 @@ function SampleProducts() {
             </>
             {searchItem !== "" && <Sponsered />}
         </div>
-        {productsFromSeller.length && <div className='pageIndexing'>
+        {productsFromSellerLoaded && <div className='pageIndexing'>
             {disablePrev?  <div className='indexChangers' style={disableIndexing}><i className="fas fa-chevron-circle-left"></i></div>:
                             <div className='indexChangers' onClick={PreviousPage}><i className="fas fa-chevron-circle-left"></i></div>
             }
-               <div>{currPage}</div>
+            <div>{currPage}</div>
             {disableNext ? <div className='indexChangers' style={disableNext ? disableIndexing : {color:"black"}} ><i class="fas fa-chevron-circle-right"></i></div> :
              <div className='indexChangers' onClick={NextPage}><i class="fas fa-chevron-circle-right"></i></div>
             }</div>}

@@ -3,7 +3,8 @@ import './userprofile.css'
 import {useSelector} from 'react-redux';
 import sampledp from '../../media/sampleImages/sampleuserdp.jpg'
 function UserProfile() {
-    const userData = useSelector(state => state.userData)
+    const fetch = JSON.parse(localStorage.getItem("profile"))
+    const userData = fetch.newUser
     return (
         userData.length===0?<h1 className="signedOut">YOU ARE SIGNED OUT</h1>:
         <div className="user_profile">
@@ -25,7 +26,9 @@ function UserProfile() {
                     </div>
                 </div>
                 <div className="lower">
-                    <div className="user_profile_data">
+                    {!userData.googleUser &&
+                    <>
+                     <div className="user_profile_data">
                         <h3>Address <p>{userData.address}</p></h3>
                     </div>
                     <div className="user_profile_data">
@@ -34,6 +37,8 @@ function UserProfile() {
                     <div className="user_profile_data">
                         <h3>Profession <p>{userData.occupation}</p></h3>
                     </div>
+                    </>
+                    }
                     <div className="user_profile_data">
                         <h3>Joined Axxitude on <p>{userData.createdAt}</p></h3>
                     </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setNewPopUp } from "../actions/actions";
 import { postreview } from "../api"
@@ -7,11 +7,15 @@ import {useHistory} from 'react-router-dom'
 function Reviews(props) {
     const history = useHistory()
     const productDetails = props.productDetails;
-    const userName = props.userData.firstname;
+    const userName = JSON.parse(localStorage.getItem("profile"))?.newUser.firstname;
     const isLogged = useSelector(state=>state.isLoggedReducer)
     const reviewer = {name:userName,date:Date()}
-    const productReviews =props.productDetails.Reviews;
+    const productReviews = props.productDetails.Reviews;
     const [reviewText,setReviewText] = useState("");
+    const [reviews,setreviews] = useState([])
+    useEffect(() => {
+        setreviews(productReviews)
+    }, [reviews,productReviews])
     const dispatch = useDispatch()
     return (
         <div className='review'>
@@ -22,7 +26,7 @@ function Reviews(props) {
                  value={reviewText}
                  onChange={(e)=>setReviewText(e.target.value)}
                  />
-                <button onClick={()=>{
+                <button style={{width:"250px"}} onClick={()=>{
                     if(isLogged===false){
                         const popUpData = {title:"Not Signed In",body:"Login Or Register to buy and review products."};
                         dispatch(setNewPopUp(popUpData))
@@ -36,6 +40,7 @@ function Reviews(props) {
                     }
                     postreview(productDetails._id,reviewText,reviewer);
                     setReviewText("")
+                    reviews.push({reviewer,reviewText})
                     const popUpData = {title:"Review Posted",body:"Thanks for Posting your Review. Happy Shopping!"};
                     dispatch(setNewPopUp(popUpData))
                     }}>Post Review</button>

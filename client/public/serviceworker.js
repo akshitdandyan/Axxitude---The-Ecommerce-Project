@@ -45,7 +45,7 @@ self.addEventListener('activate', (event) => {
 // PUSH NOTIFICATIONS
 self.addEventListener('push',(event) => {
     const data = event.data.json();
-    console.log('Push recieved');
+    // console.log('Push recieved');
     self.registration.showNotification(data.title,{
         body:"Keep exploring Axxitude",
         icon:"./favicon/favicon.png"

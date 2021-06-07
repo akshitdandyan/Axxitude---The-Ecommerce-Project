@@ -26,13 +26,14 @@ app.get('/',(req,res)=>res.send("AXXITUDE SERVERS 10.0"))
 app.use(bodyParser.json({limit: '30mb', extended: true}));
 app.use(bodyParser.urlencoded({limit: '30mb', extended: true}));
 
-// push notification
+// push notification only
 app.post('/subscribe',(req,res) => {
     const subscription = req.body;
     res.status(201).json({});
     const payload =JSON.stringify({title:"Welcome Back"})
     webpush.sendNotification(subscription, payload).catch(err => console.log(err))
 })
+//push notification only
 
 app.use(router);
 const DB_URL = process.env.DATABASE;

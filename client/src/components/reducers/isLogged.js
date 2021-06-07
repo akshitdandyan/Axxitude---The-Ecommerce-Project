@@ -1,4 +1,4 @@
-import {LOGIN,LOGOUT} from '../constants/actionTypes.js';
+import { LOGIN,LOGOUT } from '../constants/actionTypes.js';
 const isLoggedReducer = (state=false,action)=>{
     switch(action.type){
         case LOGIN:

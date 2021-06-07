@@ -8,7 +8,6 @@
 }
 .regards{
     font-size: 20px;
-    font-style: oblique;
     padding: 20px;
     text-align: center;
 }
@@ -23,24 +22,35 @@
     padding-bottom: 20px;
 }
 .contactForm>div{
-    width: 100px;
+    width: 300px;
     max-width: 80vw;
     margin: auto;
     margin-top: 20px;
 }
 .contactForm>div>input{
     font-size: 14px;
+    width: 100%;
     padding: 4px;
     border: none;
     outline: none;
     background: none;
     border-bottom: 3px green solid;   
 }
+.contactForm>div>input:focus{
+    filter: opacity(100%);
+    transition: 0.2s;
+    border-bottom: 3px rgb(10, 73, 100) solid;   
+}
 .contactForm>.btn{
     background-color: rgb(45, 96, 198);
     text-align: center;
-    border-radius: 12px;
+    border-radius: 4px;
+    padding-top: 4px;
     cursor: pointer;
+    width: 300px;
+    height: 30px;
+    position: relative;
+    left: 5px;
 }
 .contactForm>.btn:hover{
     transition: 0.2s;

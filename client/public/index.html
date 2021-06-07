@@ -6,7 +6,7 @@
   <link rel="icon" href="./favicon/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Axxitude - The Ecommerce" />
+  <meta name="description" content="Axxitude is an eCommerce demo project. Tech stack used: MERN. Developer: Akshit Dandyan" />
   <link rel="apple-touch-icon" href="./favicon/favicon.png" />
 
   <link rel="manifest" href="./manifest.json" />
@@ -41,15 +41,15 @@
         const register = await navigator.serviceWorker.register('./serviceworker.js')
           .catch((error) => console.log("FAILURE ", error));
         // Push Register
-        console.log("Registering push...");
+        // console.log("Registering push...");
         const publicVapidKey = 'BMiMDVdgWxCYGWYm5tuhjra7WvM7IWyA9IVMZ5K-p_8cTHqWfzVAn09XfK38M85nuKlGmsSJBG7cl113_-iP6bg';
         const subscription = await register.pushManager.subscribe({
           userVisibleOnly: true,
           applicationServerKey:urlBase64ToUint8Array(publicVapidKey)
         })
-        console.log("Push Registered");
+        // console.log("Push Registered");
         // Send Push
-        console.log("Sending push...");
+        // console.log("Sending push...");
         await fetch('http://localhost:5000/subscribe',{
           method:"POST",
           body:JSON.stringify(subscription),
@@ -57,7 +57,7 @@
             'content-type':"application/json"
           }
         })
-        console.log('push sent...');
+        // console.log('push sent...');
       })
     } else {
       console.log('Browser is not supporting service worker');

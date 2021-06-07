@@ -23,7 +23,7 @@ function LoadingSellersProduct() {
         <div className='meme'>
             {meme!=='' && <div>
                 While your internet is fetching data with such a higher speed,
-                why not {meme}</div>}
+                why not {meme.toLowerCase()}.</div>}
         </div>
         </div>
     )

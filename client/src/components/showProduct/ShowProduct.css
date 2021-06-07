@@ -130,6 +130,10 @@
     font-size: 13px;
     max-width: 90%;
 }
+.addNewReview:focus{
+    transition: 0.3s;
+    border-bottom: 2px rgb(8, 76, 125) solid;
+}
 .addNewReview>button{
     margin-left: 20px;
 }
