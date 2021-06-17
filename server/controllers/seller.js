@@ -1,6 +1,6 @@
 import SellerAccount from '../models/SellerAccount.js';
 import SellerProduct from '../models/SellerProduct.js';
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 export const seller_Account = async(req,res)=>{
     const {Fullname,BusinessName,BusinessType,Gender,StoreAddress,Email,ContactNumber,Password,ProfilePicture} = req.body;

@@ -48,27 +48,51 @@
     margin-top: 10px;
     word-spacing: 10px;
 }
-.creator{
-    border-bottom: 3px cyan solid;
-    margin-top: 10px;
+
+.dpOfCreator{
+    overflow: hidden;
 }
-.creator>h2{
-    color: aqua;
+.dpOfCreator>img{
+    width: 200px;
+    border-radius: 70%;
 }
 .c1{
-    text-align: left;
+    color: cyan;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.cbout{
+    backdrop-filter: brightness(50%);
+    position: relative;
+    bottom: 40px;
 }
 .c2{
-    text-align: right;
+    color: white;
+    font-size: 40px;
 }
 .c3{
+    color: grey;
+}
+.c4{
+    color: rgb(196, 189, 189);
+    margin-top: 12px;
+}
+.clinks>div>i{
+    color: rgb(22, 95, 241);
+}
+.clinks>div{
+    width: 200px;
+    margin: auto;
     text-align: left;
+    margin-top: 10px;
 }
-.bio{
-    font-size: 12px;
-    font-style: italic;
-    color: rgb(106, 96, 96);
+.clinks a{
+    text-decoration: none;
+    color: aliceblue;
+    font-family: "Sarala";
+    font-weight: normal;
 }
-.role{
-    color: white;
+.clinks a:hover{
+    transition: 0.4s;
+    color: rgb(92, 132, 213);
 }

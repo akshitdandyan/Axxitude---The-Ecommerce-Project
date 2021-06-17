@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import{ registerUser, signin, getProductsFromSellers,incClickOnProduct, addToCart,removeFromCart, updateAddress, buyItem, cancelOrder,postReview, newFeedback }from '../controllers/users.js';
+import{ registerUser, signin, getProductsFromSellers,incClickOnProduct, addToCart,removeFromCart, updateAddress, buyItem, cancelOrder,postReview, newFeedback,updatedData }from '../controllers/users.js';
 import { sellerLogin,lauchSellerProduct,deleteLaunchedProduct,seller_Account,updateSellerData,addBankDetail,sponserNewProduct,getLaunchedProducts } from '../controllers/seller.js';
 import auth from '../middleware/auth.js';
 dotenv.config();
@@ -18,6 +18,7 @@ router.post('/buy-item', auth,buyItem);
 router.post('/cancel-order', cancelOrder);
 router.post('/post-product-review', postReview);
 router.post('/post-feedback', newFeedback);
+router.post('/update',updatedData);
 
 // Seller
 router.get('/seller-login', sellerLogin);

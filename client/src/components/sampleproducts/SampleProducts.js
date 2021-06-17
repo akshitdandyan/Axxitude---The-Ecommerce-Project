@@ -23,7 +23,7 @@ function SampleProducts() {
     //     });
     // },[])
 
-    const [productsFromSeller, setProductsFromSeller] = useState([]);
+    const productsFromSeller = useSelector(state => state.products)
     const [productsFromSellerLoaded, setProductsFromSellerLoaded] = useState(false);
     const [searchItem, setSearchItem] = useState("");
     const cat = useSelector(state => state.CategoryReducer)
@@ -43,16 +43,12 @@ function SampleProducts() {
         }
         setSearchItem(cat)
         setPreview(isPreview)
-        async function startFetchingProducts() {
-            const allproducts = await getProductsFromSellers();
-            if(!allproducts.length) return console.log("ERROR IN FETCHING PRODUCTS");
-            setProductsFromSeller(allproducts)
-            const ads = allproducts.filter((item) => item.ad === true)
+        if(productsFromSeller.length){        
+            const ads = productsFromSeller.filter((item) => item.ad === true)
             dispatch({ type: "FETCH_ADS", payload: ads })
             setProductsFromSellerLoaded(true)
         }
-        startFetchingProducts()
-    }, [dispatch, cat, isPreview])
+    }, [dispatch, cat, isPreview,productsFromSeller])
 
     const NextPage = () => {
         if(disableNext){

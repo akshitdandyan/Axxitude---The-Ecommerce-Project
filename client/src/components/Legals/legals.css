@@ -1,0 +1,35 @@
+.privPOL{
+    background-color: white;
+    margin: 0px;
+    margin-top: -50px;
+    font-family: 'Sarala';
+    padding: 20px 20vw;
+}
+.privPOL h1{
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+.privPOL p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.privPOL h3{
+    color: black;
+}
+iframe{
+    width: 99vw;
+    margin-top: -50px;
+    height: 100vh;
+}
+@media only screen and (max-width:1100px) {
+    .privPOL{
+        box-sizing: border-box;
+        background-color: white;
+        margin-top: -50px;
+        font-family: 'Sarala';
+        padding: 20px 30px;
+    }
+    .privPO h1 h3 p li{
+        margin: 0px;
+    }
+}

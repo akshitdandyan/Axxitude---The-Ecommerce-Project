@@ -17,8 +17,9 @@ const Contact = () => {
         const popUpData = {title:"Feedback Sent ✔",body:"Thanks for contacting us. We will reply soon. Have a nice day"};
         dispatch(setNewPopUp(popUpData))
         setFeedback({name:'',email:'',message:''})
-        await axios.post('https://axxitude.herokuapp.com/post-feedback',newFeedback)
+        await axios.post('http://localhost:5000/post-feedback',newFeedback)
     }
+
     return (
         <div className='contact'>
             <div className='regards'>
@@ -42,6 +43,5 @@ const Contact = () => {
             </div>
         </div>
     )
-}
-
+    }
 export default Contact

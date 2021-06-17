@@ -29,6 +29,8 @@ const ShowProduct = () => {
             dispatch(setNewPopUp(popUpData))
         }else{
             dispatch(AddToCart(productDetails))
+            const popUpData = {title:"Added To Cart",body:productDetails.ProductName.slice(0,10)+"... has been added to your cart."};
+            dispatch(setNewPopUp(popUpData))
         }
     }
     // rsz start
@@ -91,7 +93,9 @@ const ShowProduct = () => {
                             const popUpData = {title:"Access Denied",body:"You need to Log in first in order to purchase an item"};
                             dispatch(setNewPopUp(popUpData))
                         }else{
-                        dispatch(BuyItem(userID,productDetails));
+                            dispatch(BuyItem(userID,productDetails));
+                            const popUpData = {title:"Order Placed",body:"Your order for "+productDetails.ProductName.slice(0,10)+"... has been placed."};
+                            dispatch(setNewPopUp(popUpData))
                         }
                     }}>Buy Now</div>
                 </div>

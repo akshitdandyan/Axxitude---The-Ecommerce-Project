@@ -34,7 +34,8 @@
     border: none;
     outline: none;
     background: none;
-    border-bottom: 3px green solid;   
+    border-bottom: 3px green solid;  
+    user-select:text; 
 }
 .contactForm>div>input:focus{
     filter: opacity(100%);

@@ -3,7 +3,7 @@ import { removeFromCart,BuyItem } from "../actions/actions";
 
 function EachCartItem(props) {
     const Item_Details = props.props;
-    const userID = props.id;
+    const userID = JSON.parse(localStorage.getItem("profile")).newUser._id;
     const dispatch = useDispatch();
     return (
         <div className="EachCartItem">

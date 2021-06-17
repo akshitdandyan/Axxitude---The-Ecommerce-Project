@@ -10,6 +10,7 @@ import pop_up_reducer from './POPUP_REDUCER';
 import pop_up_visibility from './POPUP_REDUCER/pop_up_visibility';
 import CategoryReducer from './CategoryString';
 import sponsored_reducer from './sponsoredReducer';
+import products from './products';
 
 export const reducers = combineReducers( {
     userData,
@@ -23,4 +24,5 @@ export const reducers = combineReducers( {
     pop_up_reducer,
     CategoryReducer,
     sponsored_reducer,
+    products
 } );

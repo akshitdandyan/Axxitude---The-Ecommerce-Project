@@ -1,12 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './userprofile.css'
-import {useSelector} from 'react-redux';
+import {useHistory} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import sampledp from '../../media/sampleImages/sampleuserdp.jpg'
+import { setNewPopUp } from '../actions/actions';
 function UserProfile() {
-    const fetch = JSON.parse(localStorage.getItem("profile"))
-    const userData = fetch.newUser
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const [userData,setUserData] = useState({})
+    useEffect(() => {
+        if(localStorage.getItem("profile")===null){
+            history.push("/")
+            const popUpData = {title:"Access Denied",body:"You are currently logged out."};
+            dispatch(setNewPopUp(popUpData))
+            return
+        }
+        setUserData(JSON.parse(localStorage.getItem("profile")).newUser)
+    }, [])
     return (
-        userData.length===0?<h1 className="signedOut">YOU ARE SIGNED OUT</h1>:
+        userData.length?<h1 className="signedOut">YOU ARE SIGNED OUT</h1>:
         <div className="user_profile">
             <div className="profile_header">
                 <h2>We are pleased to see you as a family member.</h2>
@@ -33,9 +45,6 @@ function UserProfile() {
                     </div>
                     <div className="user_profile_data">
                         <h3>Phone <p>{userData.phone}</p></h3>
-                    </div>
-                    <div className="user_profile_data">
-                        <h3>Profession <p>{userData.occupation}</p></h3>
                     </div>
                     </>
                     }

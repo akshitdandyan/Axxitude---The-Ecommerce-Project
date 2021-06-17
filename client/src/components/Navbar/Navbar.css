@@ -30,7 +30,7 @@
     padding-top: 10px;
     transition: 0.3s;
 }
-.links span,.logout{
+.links span{
     border-bottom: 2px rgb(38, 68, 99) solid;
     padding: 2px;
     font-size: large;
@@ -43,11 +43,19 @@
     height: 20px;
 }
 .logout{
-    margin: 8px;
-    padding-bottom: 5px;
+    margin: 0px;
+    border-radius: 4px;
+    font-family: "Arial";
+    background-color: red;
+    color: white;
+    height: 12px;
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 10px;
 }
 .logout:hover{
-    padding-bottom: 8px;
+    filter: brightness(70%);
+    cursor: pointer;
 }
 .links span:hover{
     padding-bottom: 8px;
@@ -111,8 +119,8 @@
         color: white;
         margin: auto;
         border: none;
-        padding-top: 0px;
-        padding-bottom: 10px;
+        padding-top: 4px;
+        padding-bottom: 4px;
         margin-top: 8px;
     }
   }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .speech {
+          padding:0;
+          margin:0
+        }
+  
+        .speech input {
+          border:0;
+          display:inline-block;
+          height:30px;
+          text-align: center;
+          font-size: 14px;
+        }
+  
+        .speech img {
+             width:40px;
+             margin-left: 48vw;
+        }
+  
+      </style>
+</head>
+<body>
+  
+      <form id="labnol" method="get" action="http://www.labnol.org">
+        <div class="speech">
+          <div style="text-align: center;width: 100vw;">Click mic and Say Something...</div>
+          <div id="view" style="color: green;"></div>
+          <img onclick="startDictation()" src="https://i.imgur.com/cHidSVu.gif" />
+        </div>
+      </form>
+  
+      <script>
+  
+        function startDictation() {
+  
+          if (window.hasOwnProperty('webkitSpeechRecognition')) {
+  
+            var recognition = new webkitSpeechRecognition();
+  
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = "en-US";
+            recognition.start();
+  
+            recognition.onresult = function (e) {
+                // console.log(e.results);
+              document.getElementById('view').innerText = e.results[0][0].transcript;
+              recognition.stop();
+            //   document.getElementById('labnol').submit();
+            };
+            recognition.onerror = function(e) {
+              recognition.stop();
+            }
+          }
+        }
+  
+      </script>
+</body>
+</html>

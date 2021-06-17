@@ -7,7 +7,7 @@ import {useHistory} from 'react-router-dom'
 function Reviews(props) {
     const history = useHistory()
     const productDetails = props.productDetails;
-    const userName = JSON.parse(localStorage.getItem("profile"))?.newUser.firstname;
+    const userName = JSON.parse(localStorage.getItem("profile"))?.newUser?.firstname;
     const isLogged = useSelector(state=>state.isLoggedReducer)
     const reviewer = {name:userName,date:Date()}
     const productReviews = props.productDetails.Reviews;

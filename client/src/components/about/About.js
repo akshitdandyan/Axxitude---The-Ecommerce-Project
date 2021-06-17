@@ -1,6 +1,7 @@
 import React from 'react';
 import './about.css';
 import { Helmet } from 'react-helmet';
+import proPic from '../../media/mediumDP.jpeg';
 
 function About() {
     return (
@@ -27,27 +28,25 @@ function About() {
         </div>
 
         <div className="shadow">
-           <div className='creator c1'>
-               <h2>Akshit Dandyan</h2>
-               <p className='bio'>Student at Chitkara University, 1st Year, B.E. CSE</p>
-               <p className='role'>Roles : Designed Whole App and Idea of Axxitude,
-                   Full Backend Development, Frontend UI's, State Management using
-                   Redux, Optimization.
-               </p>
-           </div>
-           <div className='creator c2'>
-               <h2>Nidhi Sharma</h2>
-               <p className='bio'>Student at Chitkara University, 1st Year, B.E. CSE</p>
-               <p className='role'>Roles : Created Product Card Design, pop up alert on every actions,
-                    Cart Design, App testing, fixed Bugs.
-               </p>
-           </div>
-           <div className='creator c3'>
-               <h2>Abhay Sikka</h2>
-               <p className='bio'>Student at Chitkara University, 1st Year, B.E. CSE</p>
-               <p className='role'>Roles : Developed UI for contact , sign in-up pages,
-                   App testing, fixed bugs.
-               </p>
+           <div className='creator'>
+               <div className='c1'>Meet Developer</div>
+               <div className='dpOfCreator'>
+                   <img src={proPic} alt="Developer" />
+               </div>
+               <div className="cbout">
+               <div className='c2'>Akshit Dandyan</div>
+               <div className="c3">Student at CUIET Chitkara, Persuing Bachelor Of Engineering in Computer Science.</div>
+               <div className="c4">
+                   Hello, I hope after exploring this web app,
+                    you must be aware of my interests, tech stack I use, etc.
+                    In case you want to contact me, here are my social links, have a great day.
+               </div>
+               </div>
+               <div className="clinks">
+                    <div><i className="fas fa-external-link-alt"><a href="mailto:info@eraaxit.ml" target="_avracadabra"> My Email</a></i></div>
+                   <div><i className="fas fa-external-link-alt"><a href="https://www.linkedin.com/in/akshit-dandyan-604aaa1b3/" target="_avracadabra"> My Linkedin</a></i></div>
+                   <div><i className="fas fa-external-link-alt"><a href="https://www.instagram.com/theaxitjaat/" target="_avracadabra"> My little Instagram</a></i></div>
+               </div>
            </div>
         </div>
 

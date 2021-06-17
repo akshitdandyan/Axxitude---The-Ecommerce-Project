@@ -1,0 +1,117 @@
+.ChatBox{
+    min-height: 60vh;
+    background-color: aliceblue;
+    margin-top: -52px;
+}
+
+.ChatHeader{
+    text-align: center;
+    font-family: "Sarala";
+    font-size: larger;
+}
+
+.ChatCredential{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.ChatCredential > input{
+    margin: 12px;
+    font-family: 'Sarala';
+    border: 2px grey solid;
+    outline: none;
+    padding: 4px;
+}
+.ChatCredentialAction{
+    display: flex;
+    justify-content: center;
+}
+.ChatCredentialAction > button{
+    cursor: pointer;
+    width: 60px;
+    outline: none;
+    margin: 0px;
+    border: none;
+    background:linear-gradient(rgb(46, 101, 150),rgb(19, 132, 189)) ;
+}
+.ChatCredentialAction > button:hover{
+    transition: 0.3s;
+    filter: brightness(150%);
+}
+
+/* Chat Console */
+.ChatConsole{
+    min-height: 60vh;
+    background-color: aliceblue;
+    margin-top: -52px;
+    padding-bottom: 20px;
+}
+.leaveChat{
+    width: 90px;
+    margin: auto;
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    padding: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.chatConcoleHeader{
+    text-align: center;
+    font-family: 'Sarala';
+    font-size: 22px;
+}
+.showCredentials{
+    display: flex;
+    justify-content: space-evenly;
+}
+.showCredentials>div{
+    color: rgb(10, 76, 74);
+    font-family: "Arial";
+    font-weight: bolder;
+    font-size: 25px;
+}
+.sender{
+    margin-top: 30px;
+}
+.sender > input{
+    display: block;
+    outline: none;
+    border:none;
+    background: none;
+    width: 80%;
+    border-bottom: 2px grey solid;
+    padding: 4px;
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: auto;
+} 
+
+.MessageContainer{
+    width: 800px;
+    height: 400px;
+    overflow-y: scroll;
+    border: 2px solid black;
+    max-width: 90vw;
+    margin: auto;
+    margin-top: 10px;
+}
+.eachMessageContainer{
+    width: 100%;
+}
+.eachMessage{
+    border-radius: 10px;
+    max-width: 45%;
+    padding: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin: 10px;
+    box-shadow: 8px 5px 15px 2px rgb(179, 179, 179);
+}
+.eachMessage>.eachMessageSender{
+    font-size: 12px;
+    color: gray;
+}
+.alignRight{
+    margin-left: auto; 
+    margin-right: 10px;
+}

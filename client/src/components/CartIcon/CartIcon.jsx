@@ -17,10 +17,11 @@ const CartIcon = () => {
     const orderedItems = useSelector(state => state.buyItemsReducer)
     const dispatch = useDispatch();
     useEffect(() => {
-        if(userData.address!=="") setAddress(userData.address)
-    }, [cartItems,userData.address])
+        if(!isLogged) return setAddress("Not Provided")
+        if(userData.newUser.address!==undefined) return setAddress(userData.newUser.address)
+    }, [cartItems,userData.address,isLogged])
     const DoUpdateAddress = () => {
-        dispatch(update_Address(userData._id, address))
+        dispatch(update_Address(userData.newUser._id, address))
         setInputActivated(false)
     }
     const TotalProductInCart = cartItems !== undefined ? cartItems.length : 0;

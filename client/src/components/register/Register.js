@@ -31,7 +31,6 @@ const Register = () => {
             dispatch(setNewPopUp(popUpData))
         } else if (result === true) {
             history.push('/');
-            window.location.reload();
         }
     };
 

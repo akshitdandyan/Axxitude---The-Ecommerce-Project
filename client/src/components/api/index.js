@@ -19,16 +19,18 @@ export const registeruser = async(newUserData) => {
 };
  
 export const loginuser = async(userCredentials) =>{
-    const isAbleToLoggin = await API.post(`/login`,userCredentials);
-    const userData = isAbleToLoggin.data[0];
-    if(userData === undefined || userCredentials.password !== userData.password){
-        return [];
-    }
-    return userData;
+    const { data } = await API.post(`/login`,userCredentials);
+    return data;
+}
+
+export const userupdateddata = async(id) => {
+    const body = {id:id}
+    const { data } = await API.post('/update',body);
+    return data;
 }
 
 export const addtocart = async(product) => {
-    const cartData = {product:product,userEmail:localStorage.getItem("user%^&*()email_666")};
+    const cartData = {product:product,id:JSON.parse(localStorage.getItem("profile")).newUser._id};
     try {
         await API.post(`/add-to-cart`,cartData)
     } catch (error) {
@@ -79,10 +81,10 @@ export const updateAddress = async(userID,new_address) => {
     }
 }
 
-export const getProductsFromSellers = async()=>{
+export const getProductsFromSellers = async(dispatch)=>{
     try{
         const { data } = await API.get('/sellerproducts')
-        return data;
+        return data
     }catch(err){
         console.log("API PRODUCTS FROM SELLER",err)
     }

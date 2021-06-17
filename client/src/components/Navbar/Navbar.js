@@ -1,19 +1,17 @@
 import React,{ useEffect, useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import light2 from '../../media/lightmode/light2.png';
 import './Navbar.css';
 import {Link} from 'react-router-dom';
-import {logoutUser} from '../actions/actions.js'
-import { LOGIN } from '../constants/actionTypes';
+import { logoutUser, userUpdatedData} from '../actions/actions.js'
 import Popup from '../popup/Popup';
-import AuthProcess from '../../Loading/AuthProcess';
 import {useHistory} from 'react-router-dom';
 import decode from 'jwt-decode';
 
 function Navbar(){
     const [menuClick,setMenuClick] = useState(false)
-    const [isLoggedIn,setIsLoggedIn] = useState(false)
-    const [loaded,setLoaded] = useState(false)
+    const loginState = useSelector(state => state.isLoggedReducer)
+    const [isLoggedIn,setIsLoggedIn] = useState(loginState)
     const dispatch = useDispatch()
     const history = useHistory();
 
@@ -29,14 +27,14 @@ function Navbar(){
         if(token){
             const decoded = decode(token);
             if(decoded.exp * 1000 < new Date().getTime()) {
-                console.log("SESSION EXPIRED");
                 return logout()
             }
-                 setIsLoggedIn(true);
-                 setLoaded(false);
-                 dispatch({type:LOGIN});
+            dispatch(userUpdatedData(
+                JSON.parse(localStorage.getItem("profile"))?.newUser._id
+            ));
+            setIsLoggedIn(true)
         }
-    }, [dispatch])
+    }, [dispatch,loginState])
 
     const linkStyles={
         textDecoration:"none",
@@ -47,7 +45,6 @@ function Navbar(){
     return(
         <>
             <div className="navbar">
-                {loaded && <AuthProcess />}
                 <div className="logo">
                     <Link to="/"><img src={light2} alt="AXXITUDE" onClick={()=>dispatch({type:'CLEARCATEGORY'})} /></Link>
                 </div>
@@ -62,7 +59,7 @@ function Navbar(){
                     }
                     <Link to="/contact" style={linkStyles} onClick={()=>setMenuClick(false)} > <span>Contact</span></Link>
                     {isLoggedIn && <Link to="/myProfile" style={linkStyles} onClick={()=>setMenuClick(false)} ><span>Profile</span></Link>}
-                    {isLoggedIn && <div className="logout" onClick={logout}  >Log Out</div>}
+                    {isLoggedIn && <div className="logout" onClick={logout}  >Log Out <i className="fas fa-power-off"></i></div>}
                 </div>
                 <Popup />
             </div>

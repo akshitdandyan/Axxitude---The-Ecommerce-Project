@@ -5,8 +5,9 @@ import CartIcon from './../CartIcon/CartIcon';
 import {Helmet} from 'react-helmet';
 import popupsound from './../../media/sounds/popup.mp3';
 import ShowProduct from './../showProduct/ShowProduct';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Trending from './Trendings/Trendings'
+import { getProducts } from '../actions/actions';
 
 function SampleProductsHomePage() {
     const styles={
@@ -17,7 +18,12 @@ function SampleProductsHomePage() {
     const [sellerPromotional,setSellerPromotional] = useState(false);
     const isShowProduct = useSelector((state)=> state.showProductReducer)
     const popup = new Audio(popupsound);
-    const isLogged = useSelector(state => state.isLoggedReducer)
+    const isLogged = useSelector(state => state.isLoggedReducer);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getProducts());
+    }, [])
 
     useEffect(()=>{
     },[isShowProduct])
