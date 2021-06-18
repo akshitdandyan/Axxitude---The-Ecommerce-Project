@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Contact.css';
+import './contact.css';
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
 import { setNewPopUp } from '../actions/actions';
