@@ -1,6 +1,6 @@
 .show_product_bg{
     width: 90vw;
-    height: 500px;
+    height: 80vh;
     position: fixed;
     top: 0px;
     margin-left: 5vw;
@@ -67,6 +67,29 @@
 }
 .show_product_category,.show_product_tags{
     font-style: italic;
+    font-weight: bold;
+}
+.show_product_sellerEmail{
+    color: rgb(26, 84, 165);
+    font-style: normal;
+    font-family: 'Sarala';
+}
+.chatWithSeller{
+    margin: 20px;
+}
+.chatWithSeller>div{
+    display: inline-block;
+    color: white;
+    background: cornflowerblue;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0px 15px 30px 1px rgb(174, 174, 174);
+    font-size: 20px;
+    cursor: pointer;
+}
+.chatWithSeller>div:hover{
+    transition: 0.3s;
+    box-shadow: none;
 }
 .show_product_functional{
     display: flex;

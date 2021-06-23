@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import SampleProductsHomePage from './components/sampleproducts/SampleProductsHomePage';
 import Footer from './components/footer/Footer';
@@ -12,11 +12,10 @@ import PrivacyPolicy from './components/Legals/PrivacyPolicy';
 import TermsOfService from './components/Legals/TermsOfService'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ReactGA from 'react-ga';
-import ChatBox from './components/ChatRoom/ChatBox';
 
 function initAnalytics(){
-  ReactGA.initialize("G-XRJM1D430V")
-  ReactGA.pageview("/HomePage")
+  ReactGA.initialize("G-GNQG3ZXCV8")
+  ReactGA.pageview("/")
 }
 
 function App() {
@@ -39,7 +38,6 @@ function App() {
             <Route path="/myProfile" exact component={UserProfile} />
             <Route path="/privacypolicy" exact component={PrivacyPolicy} />
             <Route path="/termsofservice" exact component={TermsOfService} />
-            <Route path="/chat" exact component={ChatBox} />
           </Switch>
           </main>
           <footer>

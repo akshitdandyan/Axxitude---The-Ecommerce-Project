@@ -17,7 +17,7 @@ function AuthProcess() {
         <div className='AuthProcess'>
             <div className='AuthProcess_Rotator'></div>
            {joke.setup!=='' && <>
-            <h3 style={{color:"black",textAlign:"center"}}>Here's some boring stuff while we load your data</h3>
+            <h3 >Here's some boring stuff while we load your data</h3>
             <div className='randomJoke'>
                 <div className='setup'>{joke.setup}</div>
                 <div className="punchline">{joke.punchline}</div>

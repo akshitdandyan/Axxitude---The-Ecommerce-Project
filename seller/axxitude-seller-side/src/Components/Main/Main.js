@@ -16,18 +16,23 @@ import { useDispatch } from 'react-redux'
 import Contact from './Contact/Contact';
 import Analytics from './Analytics/Analytics';
 import AccountManagement from './AccountManagement.jsx/AccountManagement';
+import ChatBox from './ChatConsole/ChatBox';
 
 export default function Main() {
     const History = useHistory();
     const dispatch = useDispatch();
     useEffect(()=>{
         const foo = async() =>{
-            if(localStorage.getItem('seller_account_email')!=='null'){
-                History.push('/dashboard')
-            }else if(localStorage.getItem('seller_account_email')==='null'){
-                dispatch({type:LOGOUTAUTH})
-                console.log("MAIN _ LOGGED OUT")
-            }
+            // if(localStorage.getItem('seller_account_email')!=='null'){
+            //     History.push('/dashboard')
+            // }else if(localStorage.getItem('seller_account_email')==='null'){
+            //     dispatch({type:LOGOUTAUTH})
+            //     console.log("MAIN _ LOGGED OUT")
+            // }
+            if(localStorage.getItem('seller_account_email')==='null'){
+                    dispatch({type:LOGOUTAUTH})
+                    console.log("MAIN _ LOGGED OUT")
+                }
         }
         foo()
     },[History])
@@ -48,6 +53,7 @@ export default function Main() {
                 <Route path="/about" exact component={About} />
                 <Route path="/analytics" exact component={Analytics} />
                 <Route path="/account-management" exact component={AccountManagement} />
+                <Route path="/chat" exact component={ChatBox} />
             </Switch>
             <div className='ty'>
                 <img src={ty} alt='THANKYOU' />

@@ -6,6 +6,9 @@ import { setNewPopUp } from '../actions/actions';
 
 function Footer(){
     const dispatch = useDispatch()
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const month = months[new Date().getMonth()];
+    const year = new Date().getFullYear();
     return(
         <div className="footer">
 
@@ -45,9 +48,11 @@ function Footer(){
             </div>
 
             <div className="additional part">
-                <h3>Conditions of use and sale</h3>
-                <p>Just for demo purpose</p>
-                <p><i className="far fa-copyright"></i>March 2021-May 2021,AXXITUDE,Inc or its affiliates</p>
+               <h3>Conditions of use and sale</h3>
+               <a href="https://axxitude.ml/termsofservice" style={{textDecoration:"none",color:"white"}}><p>Terms Of Services</p></a>
+               <a href="https://axxitude.ml/privacypolicy" style={{textDecoration:"none",color:"white"}}> <p>Privacy Policy</p></a>
+                <p>Web app for demo purpose</p>
+                <p><i className="far fa-copyright"></i>May 2021-{month} {year},AXXITUDE,Inc or its affiliates</p>
             </div>
         </div>
     )

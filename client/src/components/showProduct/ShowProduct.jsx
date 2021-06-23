@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { HIDE_PRODUCT } from '../constants/actionTypes';
 import { AddToCart, BuyItem, setNewPopUp } from '../actions/actions.js';
 import Reviews from './Reviews';
-import {Helmet} from 'react-helmet'
+import {Helmet} from 'react-helmet';
+import ChatBox from './ChatWithSeller/ChatBox';
 
 const ShowProduct = () => {
     const dispatch = useDispatch()
@@ -14,7 +15,8 @@ const ShowProduct = () => {
     const productData = useSelector((state) => state.selectedProductReducer)
     const userData  = useSelector(state=>state.userData);
     const isPreview = useSelector(state=>state.showProductReducer)
-    const userID = userData._id;
+    const userID = userData?.newUser?._id;
+    const [chatEnabled, setChatEnabled] = useState(false);
     useEffect(() => {
         setProductDetails(productData);
     }, [productData,isLoaded])
@@ -43,16 +45,13 @@ const ShowProduct = () => {
 
     let startResize = function (evt) {
         if(y>=794){
-            console.log('No more expand allowed 1');
             return;
         }
         y = evt.screenY;
     };
 
     let resize = function (evt) {
-        console.log(y);
         if(y>=794){
-            console.log('No more expand allowed 2');
             return;
         }
 
@@ -85,6 +84,12 @@ const ShowProduct = () => {
                     <div className='show_product_description'>{productDetails.description || productDetails.ProductDescription}</div>
                     <div className='show_product_category'>Category : {productDetails.category || productDetails.ProductCategory}</div>
                     <div className='show_product_tags'>{productDetails.Tags ? ` Tags : ${productDetails.Tags}` : ''}</div>
+                    <div className='show_product_sellerEmail'>Seller's Contact: {productDetails.SellerEmail}</div>
+                </div>
+{ chatEnabled? <ChatBox SellerEmail={productDetails.SellerEmail} setChatEnabled={setChatEnabled} /> :  
+<>             
+                <div className="chatWithSeller">
+                    <div onClick={()=>setChatEnabled(true)}>Chat with this Seller <i class="fas fa-comment"></i></div>
                 </div>
                 <div className='show_product_functional'>
                     <div className="show_product_addToCart" onClick={addToCart}>Add To Cart</div>
@@ -100,6 +105,8 @@ const ShowProduct = () => {
                     }}>Buy Now</div>
                 </div>
                 <Reviews productDetails={productDetails} userData={userData} />
+                </>
+            }
             </div>
             <div className='scroll_up_show_product' onClick={close_show_product} onMouseDown={resize_func}>
                 <i className="fas fa-angle-double-up"></i>

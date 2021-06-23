@@ -5,7 +5,9 @@
     position: relative;
     margin-top: 50px;
     margin-bottom: 50px;
-    background: linear-gradient(to bottom, rgba(85, 36, 201, 0.3), rgba(103, 158, 221, 0.9));
+    background: rgb(184, 184, 184);
+    border-radius: 12px;
+    padding: 12px;
 }
 .signedOut{
     text-align: center;
@@ -19,11 +21,12 @@
 .user_profile_container h3 p{
     font-family: 'Alegreya SC';font-size: 22px;
 }
-.profile_header{
+.profile_header>h2{
     text-align: center;
-    color: aliceblue;
-    font-size: 20px;
-    font-family: arial;
+    color: black;
+    font-size: 25px;
+    font-weight: lighter;
+    font-family: 'Sarala';
 }
 .user_profile_container p{
     color: rgb(8, 23, 92);
@@ -56,4 +59,72 @@
 }
 .user_profile_data{
     border-bottom: 3px white solid;
+    position: relative;
+}
+.user_profile_data>input{
+    outline: none;
+    border: none;
+    font-family: "Sarala";
+    padding: 5px;
+    margin: 8px;
+}
+.edit-button{
+    padding: 4px;
+    color: white;
+    background-color: rgb(20, 39, 63);
+    width: 50px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 12px;
+    font-family: 'Sarala';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    box-shadow: 0px 6px 8px 1px grey;
+    cursor: pointer;
+}
+.edit-button:hover{
+    transition: 0.2s;
+    box-shadow: 0px 16px 18px 1px grey;
+    transform: scale(1.1);
+}
+.delete-button{
+    padding: 4px;
+    color: white;
+    background-color: rgb(90, 23, 14);
+    font-size: 14px;
+    text-align: center;
+    border-radius: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Sarala';
+    position: absolute;
+    bottom: 10px;
+    right: 90px;
+    box-shadow: 0px 6px 8px 1px grey;
+    cursor: pointer;
+}
+.delete-button:hover{
+    transition: 0.2s;
+    box-shadow: 0px 16px 18px 1px grey;
+    transform: scale(1.1);
+}
+@media only screen and (max-width:550px){
+    .edit-button,.delete-button{
+        position: relative;
+        width: 120px;
+        bottom: 0px;
+        right: 0px;
+    }
+    .user_profile_data{
+        text-align: center;
+        border-bottom: none;
+    }
+    .edit-delete{
+        position: relative;
+        left: 0px;
+        width: 300px;
+        display: flex;
+        justify-content: space-evenly;
+    }
 }

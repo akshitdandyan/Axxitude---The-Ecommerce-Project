@@ -5,10 +5,9 @@ import cors from 'cors';
 import router from './routes/users.js';
 import dotenv from 'dotenv';
 import webpush from 'web-push';
-
 import { Server } from "socket.io";
 import { createServer } from "http";
-import * as chatFunction from './ChatConsole/Users.js';
+import ioCon from './ChatConsole/ChatCon.js';
 
 const app = express();
 
@@ -45,40 +44,7 @@ app.post('/subscribe', (req, res) => {
 //push notification only
 
 app.use(router);
-
-io.on("connection", (socket) => {
-
-    socket.on("join", ({ name, room }, callback) => {
-        console.log('user joined');
-        const { error, user } = chatFunction.addUser({ id: socket.id, name, room });
-
-        if (error) return callback(error);
-        socket.emit('message', {user : 'admin', text: `Hey ${name}, Welcome to room ${room}`});
-        socket.broadcast.to(user.room).emit('message', {user: 'admin',text: `${name} joined the room.`})
-
-        socket.join(user.room);
-
-        io.to(user.room).emit('roomData',{room:user.room,users:chatFunction.getUsersInRoom(user.room)})
-
-        callback();
-    })
-
-    socket.on('sendMessage', (message, callback) => {
-        const user = chatFunction.getUser(socket.id);
-        console.log(user);
-        io.to(user.room).emit('message', {user: user.name, text: message});
-        io.to(user.room).emit('roomData', {room:user.room, users:chatFunction.getUsersInRoom(user.room)})
-       
-        callback();
-    })
-    socket.on("disconnect", () => {
-        const user = chatFunction.removeUser(socket.id)
-        if(user.length){
-            io.to(user[0].room).emit('message',{user:"admin",text:`${user[0].name} has left.`})
-        }
-        console.log('user left');
-    })
-});
+ioCon(io)
 
 const DB_URL = process.env.DATABASE;
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 // const productionUrl = 'https://axxitude.herokuapp.com';               // while deploying
 // const developmentUrl = 'http://localhost:5000';                       //while building
-const API = axios.create({ baseURL: "http://localhost:5000" })
+const API = axios.create({ baseURL: "https://axxitude.herokuapp.com" })
 API.interceptors.request.use((req) => {
     if(localStorage.getItem('profile')){
         req.headers.Authorization =   `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
@@ -57,7 +57,7 @@ export const postreview = async(product_id,review,reviewer) => {
 export const buyItem = async(userid,product) => {
     const shoppingData = {userID:userid,product:product};
     try {
-        await API.post(`/buy-item`,shoppingData)
+        const h = await API.post(`/buy-item`,shoppingData)
     } catch (error) {
         console.log("Woops!",error);
     }
@@ -95,5 +95,22 @@ export const increaseClick = async(SellerEmail_) => {
         await API.patch(`/seller-product-clicked`,{SellerEmail:SellerEmail_})
     } catch (error) {
         console.log(error)
+    }
+}
+
+export const updateProfile = async(profileData) =>{
+    try {
+        const {data} = await API.post("/update-client-profile",{id:profileData._id,profileData})
+        return data
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const deleteAccount = async(id)=>{
+    try {
+        const {data} = await API.post("/delete-account",{id})
+        return data;
+    } catch (error) {
+        console.log(error);
     }
 }

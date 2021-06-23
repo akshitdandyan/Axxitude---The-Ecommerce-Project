@@ -15,6 +15,7 @@
     margin: auto;
     margin-top: 10px;
     border-radius: 0px;
+    font-family: 'Sarala';
 }
 .signin{
     position: relative;
@@ -57,10 +58,16 @@ h1{
 }
 .signin_inputs>input{
     width: 100%;
-    background: white;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid rgb(14, 62, 121);
     margin-top: 16px;
     border-radius: 4px;
-    border-bottom: 3px grey solid;
+    border-bottom: 3px rgb(182, 182, 182) solid;
+    color: white;
+    padding: 4px;
+    font-size: 16px;
 }
 .signin_inputs>input:focus{
     transition: 0.3s;

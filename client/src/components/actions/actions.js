@@ -45,13 +45,14 @@ export const registerUser = (userdata) => async (dispatch) => {
   }
 };
 
-export const userUpdatedData = (id) => async(dispatch) => {
+export const userUpdatedData = (id,setUserDetailsUpdated) => async(dispatch) => {
   try {
     const result  = await userupdateddata(id);
     dispatch({ type: SET_USER_DATA, payload: result });
     dispatch({type:FETCH_CART_ITEMS,payload:result.newUser.cart})
     dispatch({type:FETCH_ORDERED_ITEMS,payload:result.newUser.itemsToBeBought})
     dispatch({type:LOGIN})
+    setUserDetailsUpdated(true)
   } catch (error) {
     console.log(error);
   }
@@ -101,6 +102,17 @@ export const CancelOrder = (userID,product) => async(dispatch)=>{
 
 export const update_Address = (userID,new_address) => async(dispatch) => {
   const {data} = await updateAddress(userID,new_address);
+  
   const token = JSON.parse(localStorage.getItem('profile')).token;
   dispatch({type:SET_USER_DATA,payload:{newUser:data.newUser,token}})
+}
+
+// chat only
+export const generate_room = () => {
+  let roomKEY = "";
+  const ferb = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+  for(let i =0; i < 9; i++){
+    roomKEY += ferb.charAt(Math.floor(Math.random() * ferb.length))
+  }
+  return roomKEY;
 }

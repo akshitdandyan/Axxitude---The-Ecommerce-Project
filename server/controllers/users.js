@@ -7,6 +7,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer'; 
 import cron from 'node-cron';
+import { SendWelcomeEmail } from '../Communication/index.js';
 dotenv.config();
 
 //CLIENT
@@ -15,18 +16,20 @@ export const registerUser = async (req, res) => {
     try {
         const userExists = await RegisteredUser.findOne({ email: email });
         if (googleUser && userExists) {
-            const token = jwt.sign({ email: userExists.email, id: userExists._id }, 'test', { expiresIn: "1h" });
+            const token = jwt.sign({ email: userExists.email, id: userExists._id }, 'test', { expiresIn: "1d" });
             return res.status(200).json({ newUser: userExists, token, type: "Welcome Back" })
         } else if (googleUser) {
             const newUser = await RegisteredUser.create({ firstname, lastname, email, image, googleUser })
-            const token = jwt.sign({ email: newUser.email, id: newUser._id }, 'test', { expiresIn: "1h" });
+            const token = jwt.sign({ email: newUser.email, id: newUser._id }, 'test', { expiresIn: "1d" });
+            await SendWelcomeEmail(email)
             return res.status(200).json({ newUser, token, type: "Welcome To Axxitude. Keep Exploring." })
         }
         if (userExists) return res.status(400).json(false);
         const hashedpassword = await bcrypt.hash(password, 12);
         const newUser = await RegisteredUser.create({ firstname, lastname, email, address, phone, image, password: hashedpassword, googleUser })
-        const token = jwt.sign({ email: newUser.email, id: newUser._id }, 'test', { expiresIn: "1h" });
+        const token = jwt.sign({ email: newUser.email, id: newUser._id }, 'test', { expiresIn: "1d" });
         res.status(200).json({ newUser, token })
+        await SendWelcomeEmail(email)
     } catch (error) {
         console.log(error);
         res.sendStatus(500).json({ message: "something went wrong." });
@@ -40,7 +43,7 @@ export const signin = async (req, res) => {
         if (existing_user) {
             const isPasswordCorrect = await bcrypt.compare(password, existing_user.password)
             if (isPasswordCorrect) {
-                const token = jwt.sign({ email: existing_user.email, id: existing_user._id }, 'test', { expiresIn: "1h" });
+                const token = jwt.sign({ email: existing_user.email, id: existing_user._id }, 'test', { expiresIn: "1d" });
                 return res.status(200).json({ newUser: existing_user, token })
             } else console.log('PROBLEM'); res.status(400).json(false)
         } else {
@@ -83,6 +86,7 @@ export const removeFromCart = async (req, res) => {
         const updatedCart = user.cart.filter((cartItem) => cartItem._id != productID)
         await RegisteredUser.findByIdAndUpdate(userID, { cart: updatedCart });
         res.status(200).json('cart updated')
+        console.log("Cart Item Removed");
     } catch (error) {
         console.log(error);
         res.status(500)
@@ -98,12 +102,11 @@ export const buyItem = async (req, res) => {
         await RegisteredUser.findByIdAndUpdate(userID, { $push: { itemsToBeBought: product } }, { new: true });
         const SellerEmail = product.SellerEmail;
         const seller = SellerAccount.find({ Email: SellerEmail })
-        console.log(seller);
         var soldProducts = 0;
         if (seller.ProductsSold !== undefined) {
             soldProducts = seller.ProductsSold
         }
-        const hm = await SellerAccount.findOneAndUpdate({ Email: SellerEmail }, { ProductsSold: soldProducts + 1 }, { new: true })
+        await SellerAccount.findOneAndUpdate({ Email: SellerEmail }, { ProductsSold: soldProducts + 1 }, { new: true })
         console.log("ITEM BOUGHT");
         res.status(200).json('success');
     } catch (error) {
@@ -156,9 +159,7 @@ export const incClickOnProduct = async (req, res) => {
 
 export const getProductsFromSellers = async (req, res) => {
     try {
-        console.log('operation started');
         const sellerProducts = await SellerProduct.find();
-        console.log('operation ended');
         return res.status(200).json(sellerProducts);
     } catch (error) {
         console.log(error);
@@ -166,24 +167,45 @@ export const getProductsFromSellers = async (req, res) => {
     }
 }
 
+export const updateProfile = async(req,res) => {
+    try {
+        const {id,profileData} = req.body;
+        await RegisteredUser.findByIdAndUpdate(id,{firstname:profileData.firstname,lastname:profileData.lastname,address:profileData.address,phone:profileData.phone,email:profileData.email});
+        res.status(200).json(true)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(false)
+    }
+}
+export const deleteAccount = async(req,res) => {
+    try {
+        const {id} = req.body;
+        await RegisteredUser.findByIdAndRemove(id);
+        res.status(200).json(true)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(false)
+    }
+}
 // Feedbacks
 
 export const newFeedback = async (req, res) => {
     const { name, email, message } = req.body;
     console.log("YUMPO");
-    // const newFeedBack = feedback({ Name: name, Email: email, Message: message });
-    // try {
-    //     await newFeedBack.save()
-    //     res.status(200)
-    // } catch (error) {
-    //     console.log(error);
-    // }
+    const newFeedBack = feedback({ Name: name, Email: email, Message: message });
+    try {
+        await newFeedBack.save()
+        res.status(200)
+    } catch (error) {
+        console.log(error);
+    }
     
     // const transporter = nodemailer.createTransport({
     //     service: 'gmail',
     //     auth: {
     //         user: 'akshitdandyan5287@gmail.com',
     //         pass: '_8Vr_uQZHGhdvR!'
+    // nd6S=AS3
     //     }
     // })
 

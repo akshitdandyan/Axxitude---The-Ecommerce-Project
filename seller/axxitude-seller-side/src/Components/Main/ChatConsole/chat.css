@@ -1,7 +1,6 @@
 .ChatBox{
     min-height: 60vh;
     background-color: aliceblue;
-    margin-top: -52px;
 }
 
 .ChatHeader{
@@ -30,6 +29,7 @@
     cursor: pointer;
     width: 60px;
     outline: none;
+    height: 60px;
     margin: 0px;
     border: none;
     background:linear-gradient(rgb(46, 101, 150),rgb(19, 132, 189)) ;
@@ -43,7 +43,6 @@
 .ChatConsole{
     min-height: 60vh;
     background-color: aliceblue;
-    margin-top: -52px;
     padding-bottom: 20px;
 }
 .leaveChat{
@@ -59,16 +58,20 @@
     text-align: center;
     font-family: 'Sarala';
     font-size: 22px;
-}
-.showCredentials{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
-.showCredentials>div{
-    color: rgb(10, 76, 74);
-    font-family: "Arial";
-    font-weight: bolder;
-    font-size: 25px;
+.chatAxxlogo{
+    width: 400px;
+    height: 100px;
+    background: url('./../../../Media/IMAGES/chatAxx.svg');
+    background-size: 100%;
+    background-position: 50%;
+}
+.chatterDetails{
+    text-align: center;
+    font-family: 'Sarala';
+    margin: 12px;
 }
 .sender{
     margin-top: 30px;
@@ -85,13 +88,23 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: auto;
 } 
-
+.mic{
+    text-align: center;
+    outline: none;
+    border: none;
+    background-color: rgb(43, 118, 165);
+    color: white;
+    width: 70px;
+    font-size: larger;
+    padding: 4px;
+    margin: auto;
+}
 .MessageContainer{
     width: 800px;
     height: 400px;
     overflow-y: scroll;
-    border: 2px solid black;
     max-width: 90vw;
+    box-shadow: 0px 20px 30px 2px rgb(177, 177, 177),inset 0px 0px 8px 1px grey;
     margin: auto;
     margin-top: 10px;
 }
@@ -105,7 +118,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     margin: 10px;
-    box-shadow: 8px 5px 15px 2px rgb(179, 179, 179);
+    box-shadow: 0px 5px 7px 1px rgb(179, 179, 179);
 }
 .eachMessage>.eachMessageSender{
     font-size: 12px;
@@ -114,4 +127,46 @@
 .alignRight{
     margin-left: auto; 
     margin-right: 10px;
+    background-color: rgb(161, 236, 211);
+}
+
+
+.loader{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.loader>div{
+    width: 60px;
+    height: 60px;
+    border-top: 4px solid black;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    margin-top: 150px;
+    animation: loaderpls infinite 1s linear;
+    box-sizing: border-box;
+}
+
+@keyframes loaderpls {
+    0%{
+        border-top: 4px solid black;
+        transform: rotate(0deg);
+    }
+    25%{
+        border-top: 4px solid rgb(73, 72, 72);
+        transform: rotate(90deg);
+    }
+    50%{
+        border-top: 4px solid rgb(40, 66, 109);
+        transform: rotate(180deg);
+    }
+    75%{
+        border-top: 4px solid rgb(19, 146, 131);
+        transform: rotate(270deg);
+    }
+    100%{
+        border-top: 4px solid black;
+        transform: rotate(360deg);
+    }
 }
